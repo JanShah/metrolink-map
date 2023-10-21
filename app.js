@@ -15,45 +15,87 @@ async function getData() {
 
 
 async function start() {
-    const canvas = document.getElementById('c')
     const data = await getData()
-    const featureCollection = new FeatureCollection();
+    const featureCollection = new FeatureCollection(data);
     console.log(data.features)
-    data.features.forEach(data => {
-        const point = new Point(data.geometry.coordinates)
-        const railwayStop = new RailwayStop(data.properties)
-        // console.log(data)
-        const feature = new Feature(point, railwayStop);
-        // console.log(feature)
-        featureCollection.addFeature(feature)
-        // console.log(data.geometry.coordinates, data.properties)
-    });
 
-    featureCollection.addEdge('HPK', 'IWM')
+    if(data.connections) {
+        data.connections.forEach(conn=>
+            featureCollection.addEdge(...conn)
+        )
+    }
     save(featureCollection)
     const drawing = new Canvas(featureCollection, document.getElementById('canvas'))
-
+    drawing.draw()
     // console.log(JSON.parse(JSON.stringify(featureCollection.features)))
 
 }
 
 class Canvas {
 
+    #minLon = 0;
+    #maxLon = 0;
+    #minLat = 0;
+    #maxLat = 0;
     /**
      * 
-     * @param {HTMLElement} canvas 
-     * @param {*} features 
+     * @param {FeatureCollection} featureCollection 
+     * @param {HTMLCanvasElement} canvas 
+     * @param {Number} w 
+     * @param {Number} h 
      */
-    constructor(features, canvas) {
-
+    constructor(featureCollection, canvas, w = 600, h = 600) {
+        canvas.width = w
+        canvas.height = h
         this.canvas = canvas
         this.ctx = canvas.getContext('2d');
-        this.features = features
+        this.ctx.translate(10,10)
+
+        this.featureCollection = featureCollection
+        this.#setBoundaries()
+        this.#addListeners();
+
+    }
+
+    #addListeners() {
+        
     }
 
     draw() {
+        this.featureCollection.draw(this.ctx)
+    }
+
+    setXy(point) {
+        const w = this.canvas.width - 20
+        const h = this.canvas.height - 20
+        const [lon, lat] = point.coordinates;
+        const xScale = (w / (this.#maxLon - this.#minLon));
+        const yScale = (h / (this.#maxLat - this.#minLat));
+        point.x = (lon - this.#minLon) * xScale;
+        point.y = (this.#maxLat - lat) * yScale; //flipped on the y
 
     }
+    #setBoundaries() {
+        const p = this.featureCollection.points
+        const lonList = p.map(c => c[0])
+        const latList = p.map(c => c[1])
+        this.#minLon = Math.min(...lonList)
+        this.#maxLon = Math.max(...lonList)
+        this.#minLat = Math.min(...latList)
+        this.#maxLat = Math.max(...latList)
+        this.featureCollection.features.forEach(feature =>
+            this.setXy(feature.geometry)
+        )
+    }
+    get boundaries() {
+        return {
+            minLon: this.#minLon,
+            maxLon: this.#maxLon,
+            minLat: this.#minLat,
+            maxLat: this.#maxLat
+        }
+    }
+
 
 }
 
@@ -64,8 +106,30 @@ function save(featureCollection) {
 
 class FeatureCollection {
     #edges = []
-    constructor() {
+
+
+    constructor(data) {
         this.features = []
+        this.#process(data)
+    }
+
+    #process(data) {
+        data.features.forEach(data => {
+            this.addFeature(new Feature(
+                new Point(data.geometry.coordinates),
+                new RailwayStop(data.properties))
+            )
+        });
+        // this.#setBoundaries()
+    }
+
+
+
+
+    draw(ctx) {
+        this.features.forEach(feature => {
+            feature.draw(ctx)
+        });
     }
     /**
      * 
@@ -78,13 +142,21 @@ class FeatureCollection {
     addEdge(start, end) {
         const startStation = this.features.find(feature => feature.code === start);
         const endStation = this.features.find(feature => feature.code === end);
-        this.#edges.push(new Edge(startStation, endStation))
+        if (startStation && endStation)
+            this.#edges.push(new Edge(startStation, endStation))
 
     }
     get edges() {
         const edgeCodes = this.#edges.map(edge => edge.code)
         return edgeCodes
     }
+
+    get points() {
+        return this.features.map(feature => {
+            return feature.point
+        })
+    }
+
 }
 
 
@@ -99,18 +171,35 @@ class Feature {
         this.properties = properties
     }
 
+    draw(ctx) {
+        this.geometry.draw(ctx)
+    }
+
     get name() {
         return this.properties.name
     }
     get code() {
         return this.properties.stationCode
     }
+
+    get point() {
+        return this.geometry.coordinates
+    }
+
 }
 
 class Point {
 
     constructor(coordinates) {
-        this.coordinates = coordinates
+        this.coordinates = coordinates;
+        this.x = 0
+        this.y = 0
+
+    }
+
+    draw(ctx) {
+        console.log(ctx)
+        ctx.fillRect(this.x,this.y,5,5)
     }
 }
 
@@ -126,7 +215,6 @@ class Edge {
     constructor(start, end) {
         this.#start = start
         this.#end = end
-        console.log(this)
     }
     get code() {
         return [this.#start.code, this.#end.code]
@@ -145,7 +233,6 @@ class RailwayStop {
     }
 
 }
-
 
 function pixelDistance(a, b) {
     return Math.hypot(Math.abs(a.x - b.x), Math.abs(a.y - b.y))
