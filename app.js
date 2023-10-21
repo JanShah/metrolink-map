@@ -19,11 +19,14 @@ async function start() {
     const featureCollection = new FeatureCollection(data);
     console.log(data.features)
 
-    if(data.connections) {
-        data.connections.forEach(conn=>
+    if (data.connections) {
+        data.connections.forEach(conn =>
             featureCollection.addEdge(...conn)
         )
     }
+    featureCollection.addEdge('HPK', 'BKV')
+    debugger
+    featureCollection.addEdge('HPK', 'BKV')
     save(featureCollection)
     const drawing = new Canvas(featureCollection, document.getElementById('canvas'))
     drawing.draw()
@@ -44,12 +47,12 @@ class Canvas {
      * @param {Number} w 
      * @param {Number} h 
      */
-    constructor(featureCollection, canvas, w = 600, h = 600) {
+    constructor(featureCollection, canvas, w = window.innerWidth, h = window.innerHeight) {
         canvas.width = w
         canvas.height = h
         this.canvas = canvas
         this.ctx = canvas.getContext('2d');
-        this.ctx.translate(10,10)
+        this.ctx.translate(10, 10)
 
         this.featureCollection = featureCollection
         this.#setBoundaries()
@@ -58,11 +61,15 @@ class Canvas {
     }
 
     #addListeners() {
-        
+
     }
 
     draw() {
-        this.featureCollection.draw(this.ctx)
+        setInterval(() => {
+            this.ctx.clearRect(-10, -10, this.canvas.width, this.canvas.height)
+            this.featureCollection.draw(this.ctx)
+        }, 60)
+
     }
 
     setXy(point) {
@@ -105,7 +112,7 @@ function save(featureCollection) {
 }
 
 class FeatureCollection {
-    #edges = []
+    #edges = new EdgeCollection()
 
 
     constructor(data) {
@@ -120,17 +127,16 @@ class FeatureCollection {
                 new RailwayStop(data.properties))
             )
         });
-        // this.#setBoundaries()
     }
-
-
-
 
     draw(ctx) {
         this.features.forEach(feature => {
             feature.draw(ctx)
         });
+        this.#edges.draw(ctx);
     }
+
+
     /**
      * 
      * @param {Feature} feature 
@@ -139,21 +145,54 @@ class FeatureCollection {
         this.features.push(feature)
     }
 
+
     addEdge(start, end) {
         const startStation = this.features.find(feature => feature.code === start);
         const endStation = this.features.find(feature => feature.code === end);
-        if (startStation && endStation)
-            this.#edges.push(new Edge(startStation, endStation))
+        if (startStation && endStation) {
+            this.#edges.push(startStation, endStation);
+        }
 
     }
+
+
     get edges() {
-        const edgeCodes = this.#edges.map(edge => edge.code)
+        const edgeCodes = this.#edges.codes
         return edgeCodes
     }
+
 
     get points() {
         return this.features.map(feature => {
             return feature.point
+        });
+    }
+
+}
+
+class EdgeCollection {
+    constructor() {
+        this.edges = []
+    }
+
+    push(start, end) {
+        const existingEdge = this.edges.filter(edge => {
+            return (edge.start == start && edge.end === end) || (edge.end === start && edge.start === end)
+        });
+        if (!existingEdge.length)
+            this.edges.push(new Edge(start, end))
+    }
+
+    codes() {
+        return this.edges.map(edge => edge.code)
+    }
+
+    draw(ctx) {
+        this.edges.forEach(edge => {
+            ctx.beginPath()
+            ctx.moveTo(...edge.getXY('start'))
+            ctx.lineTo(...edge.getXY('end'))
+            ctx.stroke()
         })
     }
 
@@ -186,6 +225,14 @@ class Feature {
         return this.geometry.coordinates
     }
 
+    get x() {
+        return this.geometry.x
+    }
+
+    get y() {
+        return this.geometry.y
+    }
+
 }
 
 class Point {
@@ -198,8 +245,9 @@ class Point {
     }
 
     draw(ctx) {
-        console.log(ctx)
-        ctx.fillRect(this.x,this.y,5,5)
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, 3,0, Math.PI * 2)
+        ctx.stroke()
     }
 }
 
@@ -219,6 +267,19 @@ class Edge {
     get code() {
         return [this.#start.code, this.#end.code]
     }
+
+    get start() {
+        return this.#start
+    }
+
+    get end() {
+        return this.#end
+    }
+    
+    getXY(pos = 'start') {
+        return [this[pos].x, this[pos].y]
+    }
+
 }
 
 class RailwayStop {
