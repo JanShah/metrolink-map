@@ -1,197 +1,151 @@
 window.addEventListener('load', start);
-const W = 900;
-const H = 600;
 /**
  *  Get the json data
  * @returns JSON
  */
 async function getData() {
-    const url = "Metrolink_Stops_Functional.json";
-    return await fetch(window.location.origin + '/' + url)
-        .then(async data => await data.json())
-        .then(data => data);
+    if (!localStorage.getItem('data')) {
+        const url = "Metrolink_Stops_Functional.json";
+        return await fetch(window.location.origin + '/' + url)
+            .then(async data => await data.json())
+            .then(data => data);
+    }
+    return JSON.parse(localStorage.getItem('data'));
 }
 
-/**
- * 
- * @param {CanvasRenderingContext2D} ctx 
- * @param {Array<Object>} selections 
- * @param {Number} d 
- */
-function showSelections(ctx, selections = [], d = 0) {
-    const x = W - 250, y = H - 200;
-    ctx.fillStyle = 'black'
-    ctx.fillRect(x, y, 240, 190);
-    if (selections.length) {
-        ctx.fillStyle = 'white'
-        ctx.textAlign = 'left'
-        const start = selections[0].features
-        const end = selections[1].features
-        ctx.fillText("Selected stations:", x + 5, y + 10)
-        ctx.fillText(start.properties.name + " to " + end.properties.name, x + 5, y + 20)
-        ctx.fillText(start.properties.name, x + 5, y + 40)
-        ctx.fillText(start.properties.description, x + 5, y + 50)
-        ctx.fillText(end.properties.name, x + 5, y + 70)
-        ctx.fillText(end.properties.description, x + 5, y + 80)
-        ctx.fillText("Straight distance: " + d.toFixed(2), x + 5, y + 110)
-    }
-    ctx.textAlign = 'center'
-}
 
 async function start() {
-    const data = await getData();
-    const mousePos = { x: 0, y: 0 };
-    let sensorRadius = 10;
-    let selectedStation
-    let inRangeCells = []
-    let isMouseDown = false
-    const edges = [];
+    const canvas = document.getElementById('c')
+    const data = await getData()
+    const featureCollection = new FeatureCollection();
+    console.log(data.features)
+    data.features.forEach(data => {
+        const point = new Point(data.geometry.coordinates)
+        const railwayStop = new RailwayStop(data.properties)
+        // console.log(data)
+        const feature = new Feature(point, railwayStop);
+        // console.log(feature)
+        featureCollection.addFeature(feature)
+        // console.log(data.geometry.coordinates, data.properties)
+    });
 
-    const canvas = document.getElementById('canvas');
-    canvas.width = W;
-    canvas.height = H;
-    canvas.getContext('2d').translate(20, 20);
+    featureCollection.addEdge('HPK', 'IWM')
+    save(featureCollection)
+    const drawing = new Canvas(featureCollection, document.getElementById('canvas'))
 
-    const ctx = canvas.getContext(['2d']);
-    ctx.textAlign = 'center'
-    ctx.textBaseline = 'middle'
-    const features = data.features;
+    // console.log(JSON.parse(JSON.stringify(featureCollection.features)))
 
-    const getXY = lonLatToXY(data.features.map(i => i.geometry.coordinates));
-    const grid = [];
-    for (let i = 0; i < features.length; i++) {
-        const curr = features[i].geometry;
-        const { x, y } = getXY(...curr.coordinates);
-        grid.push({ x, y, fill: 'black', features: features[i] });
+}
+
+class Canvas {
+
+    /**
+     * 
+     * @param {HTMLElement} canvas 
+     * @param {*} features 
+     */
+    constructor(features, canvas) {
+
+        this.canvas = canvas
+        this.ctx = canvas.getContext('2d');
+        this.features = features
     }
-    canvas.addEventListener('mousemove', e => {
-        const x = e.offsetX - 20, y = e.offsetY - 20
-        mousePos.x = x
-        mousePos.y = y
 
-        inRangeCells = grid.filter(el => {
-            if (el !== selectedStation)
-                el.fill = 'black'
-            return pixelDistance({ x, y }, el) < sensorRadius
-        });
-        if (inRangeCells.length) {
-            inRangeCells.forEach(el => {
-                if (el !== selectedStation)
-                    el.fill = 'red'
-                else
-                    el.fill = 'green'
-            });
-        }
+    draw() {
 
-    });
-    canvas.addEventListener('wheel', e => {
-        sensorRadius -= Math.sign(e.deltaY)
-    });
+    }
 
+}
 
-    canvas.addEventListener('mousedown', e => {
-        isMouseDown = true;
+function save(featureCollection) {
+    featureCollection.connections = featureCollection.edges
+    localStorage.setItem('data', JSON.stringify(featureCollection))
+}
 
-        if (inRangeCells.length) {
-            selectedStation = inRangeCells[0];
-            selectedStation.fill = 'green'
-        }
-    })
-    canvas.addEventListener('mouseup', e => {
-        const endStation = inRangeCells[0];
-        if (selectedStation && endStation) {
-            if (edges.filter((edge => {
-                return edge.start === selectedStation && edge.end === endStation
-                    || edge.end === selectedStation && edge.start === endStation
-            })).length === 0)
-                edges.push({ start: selectedStation, end: endStation })
-            selectedStation.connection = endStation
+class FeatureCollection {
+    #edges = []
+    constructor() {
+        this.features = []
+    }
+    /**
+     * 
+     * @param {Feature} feature 
+     */
+    addFeature(feature) {
+        this.features.push(feature)
+    }
 
-        }
-        selectedStation = null;
-        isMouseDown = false;
-        console.log(data)
-    })
-    setInterval(() => {
-        draw()
-    });
+    addEdge(start, end) {
+        const startStation = this.features.find(feature => feature.code === start);
+        const endStation = this.features.find(feature => feature.code === end);
+        this.#edges.push(new Edge(startStation, endStation))
 
-    function draw() {
-        ctx.clearRect(-20, -20, ctx.canvas.width + 20, ctx.canvas.height + 20);
-
-        edges.forEach(edge => {
-            ctx.strokeStyle = 'blue'
-            ctx.lineWidth = 3
-            ctx.beginPath()
-            ctx.moveTo(edge.start.x, edge.start.y)
-            ctx.lineTo(edge.end.x, edge.end.y);
-            ctx.stroke();
-
-        });
-        ctx.strokeStyle = 'black'
-        ctx.lineWidth = 1
-        if (selectedStation) {
-            ctx.fillText(selectedStation.features.properties.name, selectedStation.x, selectedStation.y - 10)
-            ctx.beginPath()
-            ctx.moveTo(selectedStation.x, selectedStation.y)
-            let x = 0, y = 0;
-            if (inRangeCells.length) {
-                x = inRangeCells[0].x;
-                y = inRangeCells[0].y;
-                const endCell = inRangeCells[0];
-                ctx.lineTo(endCell.x, endCell.y)
-
-            } else {
-                x = mousePos.x;
-                y = mousePos.y;
-            }
-            ctx.lineTo(x, y)
-            ctx.stroke()
-        }
-        if (inRangeCells.length) {
-            ctx.fillStyle = 'black'
-            inRangeCells.forEach(cell => {
-                if (cell !== selectedStation)
-                    ctx.fillText(cell.features.properties.name, cell.x, cell.y - 10)
-            })
-
-        }
-
-        if (selectedStation && inRangeCells.length) {
-            if (inRangeCells[0] !== selectedStation) {
-                const d = longLatToDist(
-                    selectedStation.features.geometry.coordinates,
-                    inRangeCells[0].features.geometry.coordinates
-                )
-                const { x: sx, y: sy } = selectedStation
-                const { x: ex, y: ey } = inRangeCells[0];
-                const midX = lerp(sx, ex, .5);
-                const midY = lerp(sy, ey, .5)
-                ctx.fillRect(midX - 11, midY - 6, 22, 12)
-                ctx.fillStyle = 'white'
-
-                ctx.fillText(d.toFixed(2), midX, midY);
-                showSelections(ctx, [selectedStation, inRangeCells[0]], d)
-            }
-            ctx.fillStyle = 'black'
-
-
-        }
-        ctx.beginPath()
-        ctx.strokeStyle = 'red'
-        ctx.arc(mousePos.x, mousePos.y, sensorRadius / 2, 0, Math.PI * 2)
-        ctx.stroke()
-        grid.forEach(cell => {
-            // ctx.strokeStyle = 'black'
-            ctx.strokeStyle = cell.fill
-            ctx.beginPath()
-            ctx.arc(cell.x, cell.y,5,0,Math.PI * 2)
-            ctx.stroke()
-            // ctx.fillRect(cell.x - 2.5, cell.y - 2.5, 5, 5)
-        })
-
+    }
+    get edges() {
+        const edgeCodes = this.#edges.map(edge => edge.code)
+        return edgeCodes
     }
 }
+
+
+class Feature {
+    /**
+     * 
+     * @param {Point} geometry 
+     * @param {RailwayStop} properties 
+     */
+    constructor(geometry, properties) {
+        this.geometry = geometry
+        this.properties = properties
+    }
+
+    get name() {
+        return this.properties.name
+    }
+    get code() {
+        return this.properties.stationCode
+    }
+}
+
+class Point {
+
+    constructor(coordinates) {
+        this.coordinates = coordinates
+    }
+}
+
+class Edge {
+    /**
+     * 
+     * @param {FeatureCollection} stations
+     * @param {Feature} start 
+     * @param {Feature} end 
+     */
+    #start
+    #end
+    constructor(start, end) {
+        this.#start = start
+        this.#end = end
+        console.log(this)
+    }
+    get code() {
+        return [this.#start.code, this.#end.code]
+    }
+}
+
+class RailwayStop {
+    constructor({ currentStatus, description, name, stationCode, stroke, ticketZone, validFrom }) {
+        this.currentStatus = currentStatus
+        this.description = description
+        this.name = name
+        this.stationCode = stationCode
+        this.stroke = stroke
+        this.ticketZone = ticketZone
+        this.validFrom = validFrom
+    }
+
+}
+
 
 function pixelDistance(a, b) {
     return Math.hypot(Math.abs(a.x - b.x), Math.abs(a.y - b.y))
