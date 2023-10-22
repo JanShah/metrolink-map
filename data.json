@@ -1,0 +1,1790 @@
+{
+	"features": [
+		{
+			"geometry": {
+				"coordinates": [-2.2672470445, 53.5305052393],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Heaton Park Metrolink stop.",
+				"name": "Heaton Park",
+				"stationCode": "HPK",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2498954101, 53.5248928945],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Bowker Vale Metrolink stop.",
+				"name": "Bowker Vale",
+				"stationCode": "BKV",
+				"stroke": "#000000",
+				"ticketZone": "2/3",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2410447161, 53.5172931833],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Crumpsall Metrolink stop.",
+				"name": "Crumpsall",
+				"stationCode": "CRP",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2970957346, 53.590958632],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Bury Metrolink stop.",
+				"name": "Bury",
+				"stationCode": "BRY",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3210307459, 53.5623899316],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Radcliffe Metrolink stop.",
+				"name": "Radcliffe",
+				"stationCode": "RAD",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2952051111, 53.5512115751],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Whitefield Metrolink stop.",
+				"name": "Whitefield",
+				"stationCode": "WFD",
+				"stroke": "#000000",
+				"ticketZone": "3/4",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2861234691, 53.5420651307],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Besses o' th' Barn Metrolink stop.",
+				"name": "Besses o' th' Barn",
+				"stationCode": "BOB",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2819023349, 53.5333182757],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Prestwich Metrolink stop.",
+				"name": "Prestwich",
+				"stationCode": "PRS",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2417174125, 53.4877421261],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Victoria Metrolink stop.",
+				"name": "Victoria",
+				"stationCode": "VIC",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "19920406"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.238836318, 53.4819375024],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Market Street Metrolink stop.",
+				"name": "Market Street",
+				"stationCode": "MKT",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "19920427"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.236987811, 53.4802724384],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Piccadilly Gardens Metrolink stop.",
+				"name": "Piccadilly Gardens",
+				"stationCode": "PCG",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "19920720"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2304092919, 53.4770298302],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Piccadilly Metrolink stop.",
+				"name": "Piccadilly",
+				"stationCode": "PIC",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "19920720"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2503454594, 53.4747237826],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Deansgate-Castlefield Metrolink stop.",
+				"name": "Deansgate-Castlefield",
+				"stationCode": "DCF",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "19920427"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2780294948, 53.4651935124],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Pomona Metrolink stop.",
+				"name": "Pomona",
+				"stationCode": "POM",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19991206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2772539486, 53.4617587999],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Trafford Bar Metrolink stop.",
+				"name": "Trafford Bar",
+				"stationCode": "TFB",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2391066292, 53.4852776589],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Shudehill Metrolink stop.",
+				"name": "Shudehill",
+				"stationCode": "SHL",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "20030331"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2776764321, 53.4512107555],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Firswood Metrolink stop.",
+				"name": "Firswood",
+				"stationCode": "FIR",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20110707"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2735081151, 53.4428250722],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Chorlton Metrolink stop.",
+				"name": "Chorlton",
+				"stationCode": "CHO",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20110707"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2657145447, 53.4388412989],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "St Werburgh's Road Metrolink stop.",
+				"name": "St Werburgh's Road",
+				"stationCode": "SWR",
+				"stroke": "#000000",
+				"ticketZone": "2/3",
+				"validFrom": "20110707"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2908313313, 53.4282433092],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Sale Water Park Metrolink stop.",
+				"name": "Sale Water Park",
+				"stationCode": "SWP",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2881513123, 53.4145544826],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Northern Moor Metrolink stop.",
+				"name": "Northern Moor",
+				"stationCode": "NMR",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2956997904, 53.4077357466],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Wythenshawe Park Metrolink stop.",
+				"name": "Wythenshawe Park",
+				"stationCode": "WPK",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2951582047, 53.4033107222],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Moor Road Metrolink stop.",
+				"name": "Moor Road",
+				"stationCode": "MRD",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2926735303, 53.3968492434],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Baguley Metrolink stop.",
+				"name": "Baguley",
+				"stationCode": "BAG",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2891721972, 53.3926441504],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Roundthorn Metrolink stop.",
+				"name": "Roundthorn",
+				"stationCode": "RTH",
+				"stroke": "#000000",
+				"ticketZone": "3/4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2797792265, 53.3918700253],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Martinscroft Metrolink stop.",
+				"name": "Martinscroft",
+				"stationCode": "MAR",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2562153902, 53.3872398523],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Benchill Metrolink stop.",
+				"name": "Benchill",
+				"stationCode": "BCH",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2562644211, 53.3833174666],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Crossacres Metrolink stop.",
+				"name": "Crossacres",
+				"stationCode": "CRO",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2586906852, 53.3763956977],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Robinswood Road Metrolink stop.",
+				"name": "Robinswood Road",
+				"stationCode": "RBN",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2503949954, 53.3737132444],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Peel Hall Metrolink stop.",
+				"name": "Peel Hall",
+				"stationCode": "PLH",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2524452592, 53.3679619667],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Shadowmoss Metrolink stop.",
+				"name": "Shadowmoss",
+				"stationCode": "SHD",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2722561498, 53.3653594952],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Manchester Airport Metrolink stop.",
+				"name": "Manchester Airport",
+				"stationCode": "AIR",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2198151131, 53.4810493679],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "New Islington Metrolink stop.",
+				"name": "New Islington",
+				"stationCode": "NIS",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2120629808, 53.4832805049],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Holt Town Metrolink stop.",
+				"name": "Holt Town",
+				"stationCode": "HOT",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2013834129, 53.48537388],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Etihad Campus Metrolink stop.",
+				"name": "Etihad Campus",
+				"stationCode": "SPC",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1930154769, 53.4822885127],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Velopark Metrolink stop.",
+				"name": "Velopark",
+				"stationCode": "VEL",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1823514852, 53.4827941592],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Clayton Hall Metrolink stop.",
+				"name": "Clayton Hall",
+				"stationCode": "CLA",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1652927417, 53.4808853353],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Edge Lane Metrolink stop.",
+				"name": "Edge Lane",
+				"stationCode": "EDL",
+				"stroke": "#000000",
+				"ticketZone": "2/3",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1550048902, 53.4798803727],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Cemetery Road Metrolink stop.",
+				"name": "Cemetery Road",
+				"stationCode": "CER",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1446657345, 53.4794704547],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Droylsden Metrolink stop.",
+				"name": "Droylsden",
+				"stationCode": "DYL",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20130211"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1309653768, 53.4782093022],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Audenshaw Metrolink stop.",
+				"name": "Audenshaw",
+				"stationCode": "AUD",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20131009"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1219229142, 53.4836767552],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Ashton Moss Metrolink stop.",
+				"name": "Ashton Moss",
+				"stationCode": "ASM",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20131009"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.109721205, 53.490250128],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Ashton West Metrolink stop.",
+				"name": "Ashton West",
+				"stationCode": "ASW",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20131009"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.0980345788, 53.4903504854],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Ashton-under-Lyne Metrolink stop.",
+				"name": "Ashton-under-Lyne",
+				"stationCode": "ASH",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20131009"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2266494916, 53.5016807825],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Queens Road Metrolink stop.",
+				"name": "Queens Road",
+				"stationCode": "QNS",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20131216"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2106544254, 53.501096583],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Monsall Metrolink stop.",
+				"name": "Monsall",
+				"stationCode": "MON",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20120613"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1991400887, 53.5015926359],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Central Park Metrolink stop.",
+				"name": "Central Park",
+				"stationCode": "CEP",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20120613"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1837232589, 53.5042267329],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Newton Heath and Moston Metrolink stop.",
+				"name": "Newton Heath and Moston",
+				"stationCode": "NHM",
+				"stroke": "#000000",
+				"ticketZone": "2/3",
+				"validFrom": "20120613"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1629235996, 53.5106281642],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Failsworth Metrolink stop.",
+				"name": "Failsworth",
+				"stationCode": "FAL",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20120613"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1473264614, 53.5199984264],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Hollinwood Metrolink stop.",
+				"name": "Hollinwood",
+				"stationCode": "HOL",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20120613"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1451820867, 53.5267187383],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "South Chadderton Metrolink stop.",
+				"name": "South Chadderton",
+				"stationCode": "SOC",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20120613"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2675495027, 53.4700194787],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Cornbrook Metrolink stop.",
+				"name": "Cornbrook",
+				"stationCode": "CNK",
+				"stroke": "#000000",
+				"ticketZone": "1/2",
+				"validFrom": "19991206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2357186392, 53.5106676302],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Abraham Moss Metrolink stop.",
+				"name": "Abraham Moss",
+				"stationCode": "ABM",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20110418"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3116614149, 53.4300039735],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Dane Road Metrolink stop.",
+				"name": "Dane Road",
+				"stationCode": "DAN",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3191394411, 53.4241853331],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Sale Metrolink stop.",
+				"name": "Sale",
+				"stationCode": "SAL",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3260595267, 53.4170730157],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Brooklands Metrolink stop.",
+				"name": "Brooklands",
+				"stationCode": "BRK",
+				"stroke": "#000000",
+				"ticketZone": "3/4",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3384036505, 53.4042544039],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Timperley Metrolink stop.",
+				"name": "Timperley",
+				"stationCode": "TMP",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3433163641, 53.3957955321],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Navigation Road Metrolink stop.",
+				"name": "Navigation Road",
+				"stationCode": "NAV",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3475158907, 53.3872091274],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Altrincham Metrolink stop.",
+				"name": "Altrincham",
+				"stationCode": "ALT",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3351657527, 53.4829836037],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Eccles Metrolink stop.",
+				"name": "Eccles",
+				"stationCode": "ECC",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20000721"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3266550151, 53.4839997121],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Ladywell Metrolink stop.",
+				"name": "Ladywell",
+				"stationCode": "LDW",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20000721"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2839674299, 53.4704131132],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Salford Quays Metrolink stop.",
+				"name": "Salford Quays",
+				"stationCode": "SFQ",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19991206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2823433015, 53.4676986039],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Exchange Quay Metrolink stop.",
+				"name": "Exchange Quay",
+				"stationCode": "EXQ",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19991206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2906199446, 53.4741850056],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Harbour City Metrolink stop.",
+				"name": "Harbour City",
+				"stationCode": "HBC",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19991206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2860274637, 53.4743378737],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Anchorage Metrolink stop.",
+				"name": "Anchorage",
+				"stationCode": "ANC",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19991206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2949315704, 53.4747951082],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Broadway Metrolink stop.",
+				"name": "Broadway",
+				"stationCode": "BDW",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19991206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2961628569, 53.4806439282],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Langworthy Metrolink stop.",
+				"name": "Langworthy",
+				"stationCode": "LGW",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20000721"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3075148627, 53.4824216266],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Weaste Metrolink stop.",
+				"name": "Weaste",
+				"stationCode": "WST",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20000721"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2850068072, 53.4560743794],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Old Trafford Metrolink stop.",
+				"name": "Old Trafford",
+				"stationCode": "OLD",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3038078823, 53.4460264212],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Stretford Metrolink stop.",
+				"name": "Stretford",
+				"stationCode": "STR",
+				"stroke": "#000000",
+				"ticketZone": "2/3",
+				"validFrom": "19920615"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2971112068, 53.4721717265],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "MediaCityUK Metrolink stop.",
+				"name": "MediaCityUK",
+				"stationCode": "MEC",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20100920"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1380277899, 53.5376871081],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Freehold Metrolink stop.",
+				"name": "Freehold",
+				"stationCode": "FRE",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20120613"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1174322118, 53.5395711032],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Oldham King Street Metrolink stop.",
+				"name": "Oldham King Street",
+				"stationCode": "OHK",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20140127"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1121345029, 53.5403139516],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Oldham Central Metrolink stop.",
+				"name": "Oldham Central",
+				"stationCode": "OHC",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20140127"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.103459906, 53.5424034135],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Oldham Mumps Metrolink stop.",
+				"name": "Oldham Mumps",
+				"stationCode": "OHM",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20140127"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1016186463, 53.5498235973],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Derker Metrolink stop.",
+				"name": "Derker",
+				"stationCode": "DER",
+				"stroke": "#000000",
+				"ticketZone": "3/4",
+				"validFrom": "20121216"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.0895481845, 53.5761674215],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Shaw and Crompton Metrolink stop.",
+				"name": "Shaw and Crompton",
+				"stationCode": "SHC",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20121216"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.0946585416, 53.6008299984],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Newhey Metrolink stop.",
+				"name": "Newhey",
+				"stationCode": "NEH",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20130228"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.112073856, 53.608122029],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Milnrow Metrolink stop.",
+				"name": "Milnrow",
+				"stationCode": "MIL",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20130228"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1237052529, 53.6110951947],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Kingsway Business Park Metrolink stop.",
+				"name": "Kingsway Business Park",
+				"stationCode": "KIN",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20130228"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1354992055, 53.613394931],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Newbold Metrolink stop.",
+				"name": "Newbold",
+				"stationCode": "NEB",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20130228"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1544526694, 53.6110247492],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Rochdale Railway Station Metrolink stop.",
+				"name": "Rochdale Railway Station",
+				"stationCode": "ROC",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20130228"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1553798789, 53.6173341878],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Rochdale Town Centre Metrolink stop.",
+				"name": "Rochdale Town Centre",
+				"stationCode": "RTC",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20140331"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.269276432, 53.4328481051],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Barlow Moor Road Metrolink stop.",
+				"name": "Barlow Moor Road",
+				"stationCode": "BMR",
+				"stroke": "#000000",
+				"ticketZone": "2/3",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2493378112, 53.4327822155],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Withington Metrolink stop.",
+				"name": "Withington",
+				"stationCode": "WTH",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20130523"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2406360726, 53.4291721195],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Burton Road Metrolink stop.",
+				"name": "Burton Road",
+				"stationCode": "BRT",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20130523"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2360528894, 53.424467407],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "West Didsbury Metrolink stop.",
+				"name": "West Didsbury",
+				"stationCode": "WDD",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20130523"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2285999437, 53.4167534695],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Didsbury Village Metrolink stop.",
+				"name": "Didsbury Village",
+				"stationCode": "DDV",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20130523"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2172659574, 53.4120746108],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "East Didsbury Metrolink stop.",
+				"name": "East Didsbury",
+				"stationCode": "EDD",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20130523"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2637514069, 53.3800462057],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Wythenshawe Town Centre Metrolink stop.",
+				"name": "Wythenshawe Town Centre",
+				"stationCode": "WYC",
+				"stroke": "#000000",
+				"ticketZone": "4",
+				"validFrom": "20141103"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.1258579193, 53.5423538912],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Westwood Metrolink stop.",
+				"name": "Westwood",
+				"stationCode": "WWD",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20140127"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2426735994, 53.4844652692],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Exchange Square Metrolink stop.",
+				"name": "Exchange Square",
+				"stationCode": "EXS",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "20151206"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3477940921, 53.4679165082],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "The Trafford Centre Metrolink stop.",
+				"name": "The Trafford Centre",
+				"stationCode": "TRC",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20200322"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2875084333, 53.4662371372],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Wharfside Metrolink stop.",
+				"name": "Wharfside",
+				"stationCode": "WSD",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20200322"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2967749705, 53.4686012552],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Imperial War Museum Metrolink stop.",
+				"name": "Imperial War Museum",
+				"stationCode": "IWM",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20200322"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.309073014, 53.4674095941],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Village Metrolink stop.",
+				"name": "Village",
+				"stationCode": "VLG",
+				"stroke": "#000000",
+				"ticketZone": "2",
+				"validFrom": "20200322"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3243797567, 53.4682676521],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Parkway Metrolink stop.",
+				"name": "Parkway",
+				"stationCode": "PAR",
+				"stroke": "#000000",
+				"ticketZone": "2/3",
+				"validFrom": "20200322"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.3419892513, 53.4657339268],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "Barton Dock Road Metrolink stop.",
+				"name": "Barton Dock Road",
+				"stationCode": "EVC",
+				"stroke": "#000000",
+				"ticketZone": "3",
+				"validFrom": "20200322"
+			}
+		},
+		{
+			"geometry": {
+				"coordinates": [-2.2431081393, 53.4782182293],
+				"x": 0,
+				"y": 0
+			},
+			"properties": {
+				"currentStatus": "functional",
+				"description": "St Peter's Square Metrolink stop.",
+				"name": "St Peter's Square",
+				"stationCode": "SPS",
+				"stroke": "#000000",
+				"ticketZone": "1",
+				"validFrom": "20160828"
+			}
+		}
+	],
+	"connections": [
+		["MIL", "NEH"],
+		["NEH", "MIL"],
+		["HPK", "BKV"],
+		["BKV", "HPK"],
+		["HPK", "PRS"],
+		["PRS", "HPK"],
+		["PRS", "BOB"],
+		["BOB", "PRS"],
+		["BOB", "WFD"],
+		["WFD", "BOB"],
+		["RAD", "WFD"],
+		["WFD", "RAD"],
+		["RAD", "BRY"],
+		["BRY", "RAD"],
+		["BKV", "CRP"],
+		["CRP", "BKV"],
+		["CRP", "ABM"],
+		["ABM", "CRP"],
+		["ABM", "QNS"],
+		["QNS", "ABM"],
+		["VIC", "QNS"],
+		["QNS", "VIC"],
+		["EXS", "VIC"],
+		["VIC", "EXS"],
+		["SPS", "EXS"],
+		["EXS", "SPS"],
+		["MKT", "SPS"],
+		["SPS", "MKT"],
+		["SHL", "MKT"],
+		["MKT", "SHL"],
+		["VIC", "SHL"],
+		["SHL", "VIC"],
+		["MKT", "PCG"],
+		["PCG", "MKT"],
+		["PCG", "PIC"],
+		["PIC", "PCG"],
+		["PIC", "NIS"],
+		["NIS", "PIC"],
+		["NIS", "HOT"],
+		["HOT", "NIS"],
+		["HOT", "SPC"],
+		["SPC", "HOT"],
+		["SPC", "VEL"],
+		["VEL", "SPC"],
+		["VEL", "CLA"],
+		["CLA", "VEL"],
+		["CLA", "EDL"],
+		["EDL", "CLA"],
+		["EDL", "CER"],
+		["CER", "EDL"],
+		["CER", "DYL"],
+		["DYL", "CER"],
+		["DYL", "AUD"],
+		["AUD", "DYL"],
+		["AUD", "ASM"],
+		["ASM", "AUD"],
+		["ASM", "ASW"],
+		["ASW", "ASM"],
+		["ASW", "ASH"],
+		["ASH", "ASW"],
+		["VIC", "MON"],
+		["MON", "VIC"],
+		["MON", "CEP"],
+		["CEP", "MON"],
+		["CEP", "NHM"],
+		["NHM", "CEP"],
+		["NHM", "FAL"],
+		["FAL", "NHM"],
+		["FAL", "HOL"],
+		["HOL", "FAL"],
+		["SOC", "HOL"],
+		["HOL", "SOC"],
+		["SOC", "FRE"],
+		["FRE", "SOC"],
+		["FRE", "WWD"],
+		["WWD", "FRE"],
+		["WWD", "OHK"],
+		["OHK", "WWD"],
+		["OHK", "OHC"],
+		["OHC", "OHK"],
+		["OHC", "OHM"],
+		["OHM", "OHC"],
+		["OHM", "DER"],
+		["DER", "OHM"],
+		["DER", "SHC"],
+		["SHC", "DER"],
+		["SHC", "NEH"],
+		["NEH", "SHC"],
+		["MIL", "KIN"],
+		["KIN", "MIL"],
+		["KIN", "NEB"],
+		["NEB", "KIN"],
+		["NEB", "ROC"],
+		["ROC", "NEB"],
+		["ROC", "RTC"],
+		["RTC", "ROC"],
+		["SPS", "DCF"],
+		["DCF", "SPS"],
+		["DCF", "CNK"],
+		["CNK", "DCF"],
+		["CNK", "POM"],
+		["POM", "CNK"],
+		["CNK", "TFB"],
+		["TFB", "CNK"],
+		["POM", "EXQ"],
+		["EXQ", "POM"],
+		["POM", "WSD"],
+		["WSD", "POM"],
+		["EXQ", "SFQ"],
+		["SFQ", "EXQ"],
+		["SFQ", "ANC"],
+		["ANC", "SFQ"],
+		["ANC", "HBC"],
+		["HBC", "ANC"],
+		["BDW", "HBC"],
+		["HBC", "BDW"],
+		["HBC", "MEC"],
+		["MEC", "HBC"],
+		["BDW", "MEC"],
+		["MEC", "BDW"],
+		["BDW", "LGW"],
+		["LGW", "BDW"],
+		["LGW", "WST"],
+		["WST", "LGW"],
+		["WST", "LDW"],
+		["LDW", "WST"],
+		["LDW", "ECC"],
+		["ECC", "LDW"],
+		["WSD", "IWM"],
+		["IWM", "WSD"],
+		["IWM", "VLG"],
+		["VLG", "IWM"],
+		["VLG", "PAR"],
+		["PAR", "VLG"],
+		["TRC", "EVC"],
+		["EVC", "TRC"],
+		["EVC", "PAR"],
+		["PAR", "EVC"],
+		["TFB", "OLD"],
+		["OLD", "TFB"],
+		["TFB", "FIR"],
+		["FIR", "TFB"],
+		["FIR", "CHO"],
+		["CHO", "FIR"],
+		["CHO", "SWR"],
+		["SWR", "CHO"],
+		["SWR", "BMR"],
+		["BMR", "SWR"],
+		["BMR", "SWP"],
+		["SWP", "BMR"],
+		["SWP", "NMR"],
+		["NMR", "SWP"],
+		["NMR", "WPK"],
+		["WPK", "NMR"],
+		["WPK", "MRD"],
+		["MRD", "WPK"],
+		["MRD", "BAG"],
+		["BAG", "MRD"],
+		["BAG", "RTH"],
+		["RTH", "BAG"],
+		["RTH", "MAR"],
+		["MAR", "RTH"],
+		["MAR", "BCH"],
+		["BCH", "MAR"],
+		["BCH", "CRO"],
+		["CRO", "BCH"],
+		["CRO", "WYC"],
+		["WYC", "CRO"],
+		["WYC", "RBN"],
+		["RBN", "WYC"],
+		["RBN", "PLH"],
+		["PLH", "RBN"],
+		["PLH", "SHD"],
+		["SHD", "PLH"],
+		["SHD", "AIR"],
+		["AIR", "SHD"],
+		["SWR", "WTH"],
+		["WTH", "SWR"],
+		["WTH", "BRT"],
+		["BRT", "WTH"],
+		["BRT", "WDD"],
+		["WDD", "BRT"],
+		["WDD", "DDV"],
+		["DDV", "WDD"],
+		["DDV", "EDD"],
+		["EDD", "DDV"],
+		["OLD", "STR"],
+		["STR", "OLD"],
+		["STR", "DAN"],
+		["DAN", "STR"],
+		["DAN", "SAL"],
+		["SAL", "DAN"],
+		["SAL", "BRK"],
+		["BRK", "SAL"],
+		["BRK", "TMP"],
+		["TMP", "BRK"],
+		["TMP", "NAV"],
+		["NAV", "TMP"],
+		["NAV", "ALT"],
+		["ALT", "NAV"]
+	]
+}
