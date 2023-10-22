@@ -23,7 +23,7 @@ async function start() {
             featureCollection.addEdge(...conn)
         )
     }
-    const drawing = new Canvas(featureCollection, document.getElementById('canvas'))
+    const drawing = new Canvas(featureCollection, document.getElementById('canvas'), window.innerWidth < 800 ? window.innerWidth - 100 : 800)
     drawing.draw()
 
     document.getElementById('clear').addEventListener('click', remove)
@@ -72,6 +72,8 @@ class Canvas {
     #prevMouseX = 0;
     #prevMouseY = 0;
     #isMouseDown = false
+    #distanceMeasurement = 0;
+    #stations = [];
 
     /**
      * 
@@ -109,7 +111,7 @@ class Canvas {
     #scroll(e) {
         const wheel = -Math.sign(e.deltaY) / 10;
         const zoom = Math.pow(1 + Math.abs(wheel) / 2, wheel > 0 ? 1 : -1);
-        if (this.#scale * zoom >= 0.9) {
+        if (this.#scale * zoom >= 1) {
 
             this.#scale *= zoom;
 
@@ -129,14 +131,17 @@ class Canvas {
                 save(this.featureCollection);
             }
         }
-        if (!this.featureCollection.followingPath)
+        if (!this.featureCollection.followingPath) {
             this.selection = null;
+        }
         this.#dragging = false;
     }
 
     #mouseDown(e) {
         this.#isMouseDown = true
-        this.featureCollection.reset()
+        this.featureCollection.reset();
+        this.#stations = []
+
         if (this.inRange.length) {
             this.selection = this.inRange[0];
         } else {
@@ -179,6 +184,25 @@ class Canvas {
         this.draw();
     }
 
+    drawPath(path) {
+        this.#distanceMeasurement = 0;
+        this.#stations = []
+        if (path) {
+            path.forEach((feature, index) => {
+                if (index) {
+                    const dist = longLatToDist(feature.point, path[index - 1].point)
+                    this.#distanceMeasurement += dist
+                    const edge = this.featureCollection.findEdge(feature, path[index - 1]);
+                    this.#stations.push(path[index - 1].name + ' to ' + feature.name + ' ' + dist.toFixed(2) + ' Miles')
+                    edge.highlight();
+                }
+                feature.highlight()
+            });
+        }
+
+
+    }
+
     draw() {
         const ctx = this.ctx;
 
@@ -196,17 +220,12 @@ class Canvas {
                 if (!this.featureCollection.followingPath) {
                     ctx.strokeStyle = 'green';
                     ctx.lineTo(this.inRange[0].x, this.inRange[0].y);
-                } else if(!this.#isMouseDown && this.featureCollection.followingPath) {
+                } else if (!this.#isMouseDown && this.featureCollection.followingPath) {
                     //find the path to the destination
-                    const current = this.selection
-                    const destination = this.inRange[0]
-
-                    
-                    const path = this.featureCollection.findPath(current, destination)
-                    // console.log(path)
-                    if (path) {
-                        path.forEach(feature => feature.highlight())
-                    }
+                    this.drawPath(
+                        this.featureCollection.findPath(
+                            this.selection, this.inRange[0]
+                        ))
                     this.selection = null
                 }
 
@@ -219,26 +238,47 @@ class Canvas {
             }
             ctx.stroke();
         }
-        if (this.inRange.length) {
 
-            this.inRange[0].drawLabel(ctx);
-        }
         ctx.lineWidth = 1;
         ctx.strokeStyle = 'black';
         ctx.beginPath();
         ctx.arc(this.#mouseX, this.#mouseY, this.#sensorRange, 0, Math.PI * 2);
         ctx.stroke();
         this.featureCollection.draw(ctx);
+        if (this.#distanceMeasurement) {
+            ctx.save()
+            ctx.setTransform(1, 0, 0, 1, 0, 0)
+            ctx.fillText(this.#distanceMeasurement.toFixed(2) + " Miles", 20, 20)
+            ctx.restore()
+        }
+        if(this.#stations.length) {
+            ctx.save()
+            ctx.setTransform(1, 0, 0, 1, 0, 0)
+            ctx.lineWidth = 2
+            this.#stations.forEach((station, i)=>{
+
+                ctx.strokeStyle = 'white'
+                ctx.strokeText(station,20,(i + 3 )* 12)
+                ctx.strokeStyle = 'black'
+                ctx.fillText(station,20,(i + 3 )* 12)
+            })
+            ctx.restore()
+
+        }
+        if (this.inRange.length) {
+
+            this.inRange[0].drawLabel(ctx);
+        }
     }
 
     setXy(point) {
-        const w = this.canvas.width - 20;
-        const h = this.canvas.height - 20;
+        const w = this.canvas.width - 50;
+        const h = this.canvas.height - 50;
         const [lon, lat] = point.coordinates;
         const xScale = (w / (this.#maxLon - this.#minLon));
         const yScale = (h / (this.#maxLat - this.#minLat));
-        point.x = (lon - this.#minLon) * xScale + 10;
-        point.y = (this.#maxLat - lat) * yScale + 10;
+        point.x = (lon - this.#minLon) * xScale + 30;
+        point.y = (this.#maxLat - lat) * yScale + 30;
     }
 
     #setBoundaries() {
@@ -287,25 +327,27 @@ class FeatureCollection {
         return this.#objects[code]
     }
 
+    findEdge(start, end) {
+        return this.#edges.findEdge(start, end)
+    }
+
     findPath(current, destination, route = []) {
         route.push(current)
         current.traverse()
         if (current == destination) {
             return route;
         }
-        const neighbours = this.#edges.filter(current)
-            .sort((a, b) => {
-                return longLatToDist(a.point, destination.point) - longLatToDist(b.point, destination.point)
-            })
+        const neighbours = this.#edges.filter(current).sort((a, b) => {
+            return longLatToDist(
+                a.point, destination.point) - longLatToDist(b.point, destination.point
+                )
+        })
         for (const neighbour of neighbours) {
             if (!neighbour.traversed) {
-                const new_route = this.findPath(neighbour, destination, route)
+                const new_route = this.findPath(neighbour, destination, [].concat(...route))
                 if (new_route) {
-                    console.log(new_route)
                     return new_route;
-
                 }
-                // const new_route = findPath();
 
             }
         }
@@ -316,6 +358,7 @@ class FeatureCollection {
         this.features.forEach(feature => {
             feature.reset()
         })
+        this.#edges.reset()
     }
 
     followPath() {
@@ -397,7 +440,11 @@ class EdgeCollection {
         this.edges = []
     }
 
-
+    findEdge(start, end) {
+        return this.edges.find((edge) => {
+            return edge.start === start && edge.end === end
+        })
+    }
 
     filter(feature) {
         return this.edges.filter(edge =>
@@ -419,11 +466,12 @@ class EdgeCollection {
 
     draw(ctx) {
         this.edges.forEach(edge => {
-            ctx.beginPath()
-            ctx.moveTo(...edge.getXY('start'))
-            ctx.lineTo(...edge.getXY('end'))
-            ctx.stroke()
+            edge.draw(ctx)
         })
+    }
+
+    reset() {
+        this.edges.forEach(edge => edge.reset())
     }
 
 }
@@ -443,6 +491,7 @@ class Feature {
     }
 
     reset() {
+        this.#highlighted = false
         this.properties.reset()
     }
 
@@ -456,15 +505,33 @@ class Feature {
 
     draw(ctx) {
         this.geometry.draw(ctx, this.#highlighted)
+        // this.drawLabel(ctx)
     }
 
     highlight() {
-        console.log('highlighted')
         this.#highlighted = true
     }
 
     drawLabel(ctx) {
-        ctx.fillText(this.name, this.x, this.y)
+        ctx.save()
+        ctx.lineWidth = 3
+        ctx.lineCap = 'round'
+        ctx.lineJoin = 'miter'
+
+        ctx.textAlign = 'center'
+        ctx.textBasealign = 'middle'
+        ctx.strokeStyle = 'white'
+
+        ctx.strokeText(this.name, this.x - 10, this.y - 15)
+        ctx.fillText(this.name, this.x - 10, this.y - 15)
+        ctx.strokeStyle = 'darkblue'
+        ctx.lineWidth = .5
+
+        ctx.beginPath()
+        ctx.moveTo(this.x, this.y - 3)
+        ctx.lineTo(this.x, this.y - 15)
+        ctx.stroke()
+        ctx.restore()
     }
 
     get name() {
@@ -528,14 +595,14 @@ class Point {
 }
 
 class Edge {
+    #start
+    #end
+    #highlighted = false
     /**
      * 
-     * @param {FeatureCollection} stations
      * @param {Feature} start 
      * @param {Feature} end 
      */
-    #start
-    #end
     constructor(start, end) {
         this.#start = start
         this.#end = end
@@ -544,12 +611,33 @@ class Edge {
         return [this.#start.code, this.#end.code]
     }
 
+    highlight() {
+        this.#highlighted = true
+    }
+
+    reset() {
+        this.#highlighted = false
+    }
+
     get start() {
         return this.#start
     }
 
     get end() {
         return this.#end
+    }
+
+    draw(ctx) {
+        ctx.save()
+        if (this.#highlighted) {
+            ctx.lineWidth = 4
+            ctx.strokeStyle = 'orange'
+        }
+        ctx.beginPath()
+        ctx.moveTo(...this.getXY('start'))
+        ctx.lineTo(...this.getXY('end'))
+        ctx.stroke()
+        ctx.restore();
     }
 
     getXY(pos = 'start') {
@@ -613,20 +701,3 @@ function lerp(a, b, t) {
     return a * (1 - t) + b * t;
 }
 
-
-function lonLatToXY(arr) {
-    const lonList = arr.map(c => c[0])
-    const latList = arr.map(c => c[1])
-    const minLon = Math.min(...lonList)
-    const maxLon = Math.max(...lonList)
-    const minLat = Math.min(...latList)
-    const maxLat = Math.max(...latList)
-    return function (lon, lat) {
-        const xScale = ((W - 50) / (maxLon - minLon));
-        const yScale = ((H - 50) / (maxLat - minLat));
-        const x = (lon - minLon) * xScale;
-        const y = (maxLat - lat) * yScale; //flipped on the y
-        return { x, y };
-    }
-
-}
