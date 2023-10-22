@@ -27,4 +27,3 @@ To clear the current navigation, click the mouse button anywhere near the map.  
 ### Closest stations
 
 To find the two closest stations that are connected, click on the button labelled 'Find closest stations'. The two closest on the map will be displayed.
-

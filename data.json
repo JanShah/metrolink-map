@@ -1,11 +1,7 @@
 {
 	"features": [
 		{
-			"geometry": {
-				"coordinates": [-2.2672470445, 53.5305052393],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2672470445, 53.5305052393] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Heaton Park Metrolink stop.",
@@ -17,11 +13,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2498954101, 53.5248928945],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2498954101, 53.5248928945] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Bowker Vale Metrolink stop.",
@@ -33,11 +25,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2410447161, 53.5172931833],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2410447161, 53.5172931833] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Crumpsall Metrolink stop.",
@@ -49,11 +37,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2970957346, 53.590958632],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2970957346, 53.590958632] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Bury Metrolink stop.",
@@ -65,11 +49,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3210307459, 53.5623899316],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3210307459, 53.5623899316] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Radcliffe Metrolink stop.",
@@ -81,11 +61,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2952051111, 53.5512115751],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2952051111, 53.5512115751] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Whitefield Metrolink stop.",
@@ -97,11 +73,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2861234691, 53.5420651307],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2861234691, 53.5420651307] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Besses o' th' Barn Metrolink stop.",
@@ -113,11 +85,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2819023349, 53.5333182757],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2819023349, 53.5333182757] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Prestwich Metrolink stop.",
@@ -129,11 +97,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2417174125, 53.4877421261],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2417174125, 53.4877421261] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Victoria Metrolink stop.",
@@ -145,11 +109,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.238836318, 53.4819375024],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.238836318, 53.4819375024] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Market Street Metrolink stop.",
@@ -161,11 +121,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.236987811, 53.4802724384],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.236987811, 53.4802724384] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Piccadilly Gardens Metrolink stop.",
@@ -177,11 +133,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2304092919, 53.4770298302],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2304092919, 53.4770298302] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Piccadilly Metrolink stop.",
@@ -193,11 +145,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2503454594, 53.4747237826],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2503454594, 53.4747237826] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Deansgate-Castlefield Metrolink stop.",
@@ -209,11 +157,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2780294948, 53.4651935124],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2780294948, 53.4651935124] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Pomona Metrolink stop.",
@@ -225,11 +169,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2772539486, 53.4617587999],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2772539486, 53.4617587999] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Trafford Bar Metrolink stop.",
@@ -241,11 +181,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2391066292, 53.4852776589],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2391066292, 53.4852776589] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Shudehill Metrolink stop.",
@@ -257,11 +193,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2776764321, 53.4512107555],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2776764321, 53.4512107555] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Firswood Metrolink stop.",
@@ -273,11 +205,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2735081151, 53.4428250722],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2735081151, 53.4428250722] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Chorlton Metrolink stop.",
@@ -289,11 +217,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2657145447, 53.4388412989],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2657145447, 53.4388412989] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "St Werburgh's Road Metrolink stop.",
@@ -305,11 +229,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2908313313, 53.4282433092],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2908313313, 53.4282433092] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Sale Water Park Metrolink stop.",
@@ -321,11 +241,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2881513123, 53.4145544826],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2881513123, 53.4145544826] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Northern Moor Metrolink stop.",
@@ -337,11 +253,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2956997904, 53.4077357466],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2956997904, 53.4077357466] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Wythenshawe Park Metrolink stop.",
@@ -353,11 +265,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2951582047, 53.4033107222],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2951582047, 53.4033107222] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Moor Road Metrolink stop.",
@@ -369,11 +277,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2926735303, 53.3968492434],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2926735303, 53.3968492434] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Baguley Metrolink stop.",
@@ -385,11 +289,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2891721972, 53.3926441504],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2891721972, 53.3926441504] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Roundthorn Metrolink stop.",
@@ -401,11 +301,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2797792265, 53.3918700253],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2797792265, 53.3918700253] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Martinscroft Metrolink stop.",
@@ -417,11 +313,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2562153902, 53.3872398523],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2562153902, 53.3872398523] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Benchill Metrolink stop.",
@@ -433,11 +325,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2562644211, 53.3833174666],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2562644211, 53.3833174666] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Crossacres Metrolink stop.",
@@ -449,11 +337,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2586906852, 53.3763956977],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2586906852, 53.3763956977] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Robinswood Road Metrolink stop.",
@@ -465,11 +349,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2503949954, 53.3737132444],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2503949954, 53.3737132444] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Peel Hall Metrolink stop.",
@@ -481,11 +361,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2524452592, 53.3679619667],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2524452592, 53.3679619667] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Shadowmoss Metrolink stop.",
@@ -497,11 +373,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2722561498, 53.3653594952],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2722561498, 53.3653594952] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Manchester Airport Metrolink stop.",
@@ -513,11 +385,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2198151131, 53.4810493679],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2198151131, 53.4810493679] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "New Islington Metrolink stop.",
@@ -529,11 +397,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2120629808, 53.4832805049],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2120629808, 53.4832805049] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Holt Town Metrolink stop.",
@@ -545,11 +409,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2013834129, 53.48537388],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2013834129, 53.48537388] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Etihad Campus Metrolink stop.",
@@ -561,11 +421,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1930154769, 53.4822885127],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1930154769, 53.4822885127] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Velopark Metrolink stop.",
@@ -577,11 +433,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1823514852, 53.4827941592],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1823514852, 53.4827941592] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Clayton Hall Metrolink stop.",
@@ -593,11 +445,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1652927417, 53.4808853353],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1652927417, 53.4808853353] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Edge Lane Metrolink stop.",
@@ -609,11 +457,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1550048902, 53.4798803727],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1550048902, 53.4798803727] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Cemetery Road Metrolink stop.",
@@ -625,11 +469,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1446657345, 53.4794704547],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1446657345, 53.4794704547] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Droylsden Metrolink stop.",
@@ -641,11 +481,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1309653768, 53.4782093022],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1309653768, 53.4782093022] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Audenshaw Metrolink stop.",
@@ -657,11 +493,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1219229142, 53.4836767552],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1219229142, 53.4836767552] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Ashton Moss Metrolink stop.",
@@ -673,11 +505,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.109721205, 53.490250128],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.109721205, 53.490250128] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Ashton West Metrolink stop.",
@@ -689,11 +517,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.0980345788, 53.4903504854],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.0980345788, 53.4903504854] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Ashton-under-Lyne Metrolink stop.",
@@ -705,11 +529,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2266494916, 53.5016807825],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2266494916, 53.5016807825] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Queens Road Metrolink stop.",
@@ -721,11 +541,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2106544254, 53.501096583],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2106544254, 53.501096583] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Monsall Metrolink stop.",
@@ -737,11 +553,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1991400887, 53.5015926359],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1991400887, 53.5015926359] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Central Park Metrolink stop.",
@@ -753,11 +565,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1837232589, 53.5042267329],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1837232589, 53.5042267329] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Newton Heath and Moston Metrolink stop.",
@@ -769,11 +577,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1629235996, 53.5106281642],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1629235996, 53.5106281642] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Failsworth Metrolink stop.",
@@ -785,11 +589,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1473264614, 53.5199984264],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1473264614, 53.5199984264] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Hollinwood Metrolink stop.",
@@ -801,11 +601,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1451820867, 53.5267187383],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1451820867, 53.5267187383] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "South Chadderton Metrolink stop.",
@@ -817,11 +613,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2675495027, 53.4700194787],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2675495027, 53.4700194787] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Cornbrook Metrolink stop.",
@@ -833,11 +625,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2357186392, 53.5106676302],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2357186392, 53.5106676302] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Abraham Moss Metrolink stop.",
@@ -849,11 +637,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3116614149, 53.4300039735],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3116614149, 53.4300039735] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Dane Road Metrolink stop.",
@@ -865,11 +649,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3191394411, 53.4241853331],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3191394411, 53.4241853331] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Sale Metrolink stop.",
@@ -881,11 +661,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3260595267, 53.4170730157],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3260595267, 53.4170730157] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Brooklands Metrolink stop.",
@@ -897,11 +673,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3384036505, 53.4042544039],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3384036505, 53.4042544039] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Timperley Metrolink stop.",
@@ -913,11 +685,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3433163641, 53.3957955321],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3433163641, 53.3957955321] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Navigation Road Metrolink stop.",
@@ -929,11 +697,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3475158907, 53.3872091274],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3475158907, 53.3872091274] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Altrincham Metrolink stop.",
@@ -945,11 +709,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3351657527, 53.4829836037],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3351657527, 53.4829836037] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Eccles Metrolink stop.",
@@ -961,11 +721,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3266550151, 53.4839997121],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3266550151, 53.4839997121] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Ladywell Metrolink stop.",
@@ -977,11 +733,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2839674299, 53.4704131132],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2839674299, 53.4704131132] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Salford Quays Metrolink stop.",
@@ -993,11 +745,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2823433015, 53.4676986039],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2823433015, 53.4676986039] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Exchange Quay Metrolink stop.",
@@ -1009,11 +757,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2906199446, 53.4741850056],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2906199446, 53.4741850056] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Harbour City Metrolink stop.",
@@ -1025,11 +769,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2860274637, 53.4743378737],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2860274637, 53.4743378737] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Anchorage Metrolink stop.",
@@ -1041,11 +781,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2949315704, 53.4747951082],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2949315704, 53.4747951082] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Broadway Metrolink stop.",
@@ -1057,11 +793,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2961628569, 53.4806439282],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2961628569, 53.4806439282] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Langworthy Metrolink stop.",
@@ -1073,11 +805,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3075148627, 53.4824216266],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3075148627, 53.4824216266] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Weaste Metrolink stop.",
@@ -1089,11 +817,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2850068072, 53.4560743794],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2850068072, 53.4560743794] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Old Trafford Metrolink stop.",
@@ -1105,11 +829,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3038078823, 53.4460264212],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3038078823, 53.4460264212] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Stretford Metrolink stop.",
@@ -1121,11 +841,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2971112068, 53.4721717265],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2971112068, 53.4721717265] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "MediaCityUK Metrolink stop.",
@@ -1137,11 +853,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1380277899, 53.5376871081],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1380277899, 53.5376871081] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Freehold Metrolink stop.",
@@ -1153,11 +865,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1174322118, 53.5395711032],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1174322118, 53.5395711032] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Oldham King Street Metrolink stop.",
@@ -1169,11 +877,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1121345029, 53.5403139516],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1121345029, 53.5403139516] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Oldham Central Metrolink stop.",
@@ -1185,11 +889,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.103459906, 53.5424034135],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.103459906, 53.5424034135] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Oldham Mumps Metrolink stop.",
@@ -1201,11 +901,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1016186463, 53.5498235973],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1016186463, 53.5498235973] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Derker Metrolink stop.",
@@ -1217,11 +913,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.0895481845, 53.5761674215],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.0895481845, 53.5761674215] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Shaw and Crompton Metrolink stop.",
@@ -1233,11 +925,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.0946585416, 53.6008299984],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.0946585416, 53.6008299984] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Newhey Metrolink stop.",
@@ -1249,11 +937,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.112073856, 53.608122029],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.112073856, 53.608122029] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Milnrow Metrolink stop.",
@@ -1265,11 +949,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1237052529, 53.6110951947],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1237052529, 53.6110951947] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Kingsway Business Park Metrolink stop.",
@@ -1281,11 +961,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1354992055, 53.613394931],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1354992055, 53.613394931] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Newbold Metrolink stop.",
@@ -1297,11 +973,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1544526694, 53.6110247492],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1544526694, 53.6110247492] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Rochdale Railway Station Metrolink stop.",
@@ -1313,11 +985,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1553798789, 53.6173341878],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1553798789, 53.6173341878] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Rochdale Town Centre Metrolink stop.",
@@ -1329,11 +997,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.269276432, 53.4328481051],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.269276432, 53.4328481051] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Barlow Moor Road Metrolink stop.",
@@ -1345,11 +1009,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2493378112, 53.4327822155],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2493378112, 53.4327822155] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Withington Metrolink stop.",
@@ -1361,11 +1021,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2406360726, 53.4291721195],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2406360726, 53.4291721195] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Burton Road Metrolink stop.",
@@ -1377,11 +1033,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2360528894, 53.424467407],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2360528894, 53.424467407] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "West Didsbury Metrolink stop.",
@@ -1393,11 +1045,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2285999437, 53.4167534695],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2285999437, 53.4167534695] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Didsbury Village Metrolink stop.",
@@ -1409,11 +1057,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2172659574, 53.4120746108],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2172659574, 53.4120746108] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "East Didsbury Metrolink stop.",
@@ -1425,11 +1069,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2637514069, 53.3800462057],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2637514069, 53.3800462057] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Wythenshawe Town Centre Metrolink stop.",
@@ -1441,11 +1081,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.1258579193, 53.5423538912],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.1258579193, 53.5423538912] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Westwood Metrolink stop.",
@@ -1457,11 +1093,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2426735994, 53.4844652692],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2426735994, 53.4844652692] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Exchange Square Metrolink stop.",
@@ -1473,11 +1105,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3477940921, 53.4679165082],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3477940921, 53.4679165082] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "The Trafford Centre Metrolink stop.",
@@ -1489,11 +1117,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2875084333, 53.4662371372],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2875084333, 53.4662371372] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Wharfside Metrolink stop.",
@@ -1505,11 +1129,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2967749705, 53.4686012552],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2967749705, 53.4686012552] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Imperial War Museum Metrolink stop.",
@@ -1521,11 +1141,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.309073014, 53.4674095941],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.309073014, 53.4674095941] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Village Metrolink stop.",
@@ -1537,11 +1153,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3243797567, 53.4682676521],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3243797567, 53.4682676521] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Parkway Metrolink stop.",
@@ -1553,11 +1165,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.3419892513, 53.4657339268],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.3419892513, 53.4657339268] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "Barton Dock Road Metrolink stop.",
@@ -1569,11 +1177,7 @@
 			}
 		},
 		{
-			"geometry": {
-				"coordinates": [-2.2431081393, 53.4782182293],
-				"x": 0,
-				"y": 0
-			},
+			"geometry": { "coordinates": [-2.2431081393, 53.4782182293] },
 			"properties": {
 				"currentStatus": "functional",
 				"description": "St Peter's Square Metrolink stop.",
