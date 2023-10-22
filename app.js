@@ -17,18 +17,43 @@ async function getData() {
 async function start() {
     const data = await getData()
     const featureCollection = new FeatureCollection(data);
-    console.log(featureCollection)
 
     if (data.connections) {
         data.connections.forEach(conn =>
             featureCollection.addEdge(...conn)
         )
     }
-
-    save(featureCollection)
     const drawing = new Canvas(featureCollection, document.getElementById('canvas'))
     drawing.draw()
 
+    document.getElementById('clear').addEventListener('click', remove)
+    document.getElementById('followPath').addEventListener('click',
+        featureCollection.followPath.bind(featureCollection))
+
+
+    document.getElementById('findClosest').addEventListener('click', () => {
+        const closestCodes = findClosestStations(featureCollection);
+        closestCodes.forEach(code => {
+            featureCollection.getStation(code).highlight()
+        })
+    });
+    save(featureCollection)
+
+}
+
+function findClosestStations(data) {
+    let shortest = Infinity
+    let stationPair
+    data.connections.forEach(([start, end]) => {
+        const a = data.getStation(start).point
+        const b = data.getStation(end).point
+        const dist = longLatToDist(a, b)
+        if (dist < shortest) {
+            shortest = dist
+            stationPair = [start, end]
+        }
+    })
+    return stationPair
 }
 
 class Canvas {
@@ -46,7 +71,15 @@ class Canvas {
     #dragging = false;
     #prevMouseX = 0;
     #prevMouseY = 0;
+    #isMouseDown = false
 
+    /**
+     * 
+     * @param {FeatureCollection} featureCollection 
+     * @param {HTMLCanvasElement} canvas 
+     * @param {Number} w 
+     * @param {Number} h 
+     */
     constructor(featureCollection, canvas, w = window.innerWidth - 50, h = window.innerHeight - 50) {
         canvas.width = w;
         canvas.height = h;
@@ -56,7 +89,13 @@ class Canvas {
         this.inRange = []
         this.#setBoundaries();
         this.#addListeners();
-        this.draw();
+        this.animate();
+    }
+
+    animate() {
+        setInterval(() => {
+            this.draw()
+        }, 60)
     }
 
     #addListeners() {
@@ -70,7 +109,7 @@ class Canvas {
     #scroll(e) {
         const wheel = -Math.sign(e.deltaY) / 10;
         const zoom = Math.pow(1 + Math.abs(wheel) / 2, wheel > 0 ? 1 : -1);
-        if (this.#scale * zoom >= 1) {
+        if (this.#scale * zoom >= 0.9) {
 
             this.#scale *= zoom;
 
@@ -83,15 +122,21 @@ class Canvas {
     }
 
     #mouseUp() {
+        this.#isMouseDown = false
         if (this.selection && this.inRange.length) {
-            this.featureCollection.addEdge(this.selection.code, this.inRange[0].code);
-            save(this.featureCollection);
+            if (!this.featureCollection.followingPath) {
+                this.featureCollection.addEdge(this.selection.code, this.inRange[0].code);
+                save(this.featureCollection);
+            }
         }
-        this.selection = null;
+        if (!this.featureCollection.followingPath)
+            this.selection = null;
         this.#dragging = false;
     }
 
     #mouseDown(e) {
+        this.#isMouseDown = true
+        this.featureCollection.reset()
         if (this.inRange.length) {
             this.selection = this.inRange[0];
         } else {
@@ -147,8 +192,27 @@ class Canvas {
             ctx.beginPath();
             ctx.moveTo(this.selection.x, this.selection.y);
             if (this.inRange.length && this.inRange[0] !== this.selection) {
-                ctx.strokeStyle = 'green';
-                ctx.lineTo(this.inRange[0].x, this.inRange[0].y);
+
+                if (!this.featureCollection.followingPath) {
+                    ctx.strokeStyle = 'green';
+                    ctx.lineTo(this.inRange[0].x, this.inRange[0].y);
+                } else if(!this.#isMouseDown && this.featureCollection.followingPath) {
+                    //find the path to the destination
+                    const current = this.selection
+                    const destination = this.inRange[0]
+
+                    
+                    const path = this.featureCollection.findPath(current, destination)
+                    // console.log(path)
+                    if (path) {
+                        path.forEach(feature => feature.highlight())
+                    }
+                    this.selection = null
+                }
+
+
+
+
             } else {
                 ctx.strokeStyle = 'black';
                 ctx.lineTo(this.#mouseX, this.#mouseY);
@@ -202,18 +266,70 @@ class Canvas {
 
 
 function save(featureCollection) {
-    // debugger
     featureCollection.connections = featureCollection.edges
     localStorage.setItem('data', JSON.stringify(featureCollection))
 }
 
+function remove() {
+    localStorage.removeItem('data')
+    window.location.reload()
+}
+
 class FeatureCollection {
     #edges = new EdgeCollection()
-
-
+    #objects = {}
+    #followingPath = false
     constructor(data) {
         this.features = []
         this.#process(data)
+    }
+    getStation(code) {
+        return this.#objects[code]
+    }
+
+    findPath(current, destination, route = []) {
+        route.push(current)
+        current.traverse()
+        if (current == destination) {
+            return route;
+        }
+        const neighbours = this.#edges.filter(current)
+            .sort((a, b) => {
+                return longLatToDist(a.point, destination.point) - longLatToDist(b.point, destination.point)
+            })
+        for (const neighbour of neighbours) {
+            if (!neighbour.traversed) {
+                const new_route = this.findPath(neighbour, destination, route)
+                if (new_route) {
+                    console.log(new_route)
+                    return new_route;
+
+                }
+                // const new_route = findPath();
+
+            }
+        }
+
+    }
+
+    reset() {
+        this.features.forEach(feature => {
+            feature.reset()
+        })
+    }
+
+    followPath() {
+        this.#followingPath = !this.#followingPath
+        const btn = document.getElementById('followPath')
+        if (this.#followingPath) {
+            btn.style.background = 'lightgreen'
+        } else {
+            btn.removeAttribute('style')
+        }
+    }
+
+    get followingPath() {
+        return this.#followingPath
     }
 
     #process(data) {
@@ -238,7 +354,10 @@ class FeatureCollection {
      * @param {Feature} feature 
      */
     addFeature(feature) {
-        this.features.push(feature)
+        this.features.push(feature);
+        if (!this.#objects[feature.code])
+            this.#objects[feature.code] = feature
+
     }
 
 
@@ -278,6 +397,14 @@ class EdgeCollection {
         this.edges = []
     }
 
+
+
+    filter(feature) {
+        return this.edges.filter(edge =>
+            edge.start === feature
+        ).map(edge => edge.end)
+    }
+
     push(start, end) {
         const existingEdge = this.edges.filter(edge => {
             return edge.start == start && edge.end === end
@@ -303,6 +430,8 @@ class EdgeCollection {
 
 
 class Feature {
+    #highlighted = false
+
     /**
      * 
      * @param {Point} geometry 
@@ -313,8 +442,25 @@ class Feature {
         this.properties = properties
     }
 
+    reset() {
+        this.properties.reset()
+    }
+
+    traverse() {
+        this.properties.traverse()
+    }
+
+    get traversed() {
+        return this.properties.traversed
+    }
+
     draw(ctx) {
-        this.geometry.draw(ctx)
+        this.geometry.draw(ctx, this.#highlighted)
+    }
+
+    highlight() {
+        console.log('highlighted')
+        this.#highlighted = true
     }
 
     drawLabel(ctx) {
@@ -340,6 +486,9 @@ class Feature {
         return this.geometry.y
     }
 
+    /**
+     * @param {String} colour
+     */
     set colour(colour) {
         this.geometry.stroke = colour
     }
@@ -362,15 +511,19 @@ class Point {
         this.#stroke = colour
     }
 
-    draw(ctx) {
+    draw(ctx, highlight = false) {
         ctx.strokeStyle = this.#stroke
+        if (highlight) {
+            ctx.strokeStyle = 'red'
+            ctx.lineWidth = 2
+        }
         ctx.beginPath()
-        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2)
+        ctx.arc(this.x, this.y, highlight ? 3 : 3, 0, Math.PI * 2)
         ctx.fillStyle = 'white'
         ctx.fill()
         ctx.stroke()
         ctx.fillStyle = 'black'
-
+        ctx.lineWidth = 1
     }
 }
 
@@ -406,6 +559,8 @@ class Edge {
 }
 
 class RailwayStop {
+
+    #traversed = false
     constructor({ currentStatus, description, name, stationCode, stroke, ticketZone, validFrom }) {
         this.currentStatus = currentStatus
         this.description = description
@@ -414,6 +569,18 @@ class RailwayStop {
         this.stroke = stroke
         this.ticketZone = ticketZone
         this.validFrom = validFrom
+    }
+
+    traverse() {
+        this.#traversed = true
+    }
+
+    get traversed() {
+        return this.#traversed
+    }
+
+    reset() {
+        this.#traversed = false
     }
 
 }
