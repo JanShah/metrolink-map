@@ -15,7 +15,7 @@ async function getData() {
 
 
 async function start() {
-    const data = await getData()
+    const data = await getData();
     const featureCollection = new FeatureCollection(data);
 
     if (data.connections) {
@@ -23,37 +23,38 @@ async function start() {
             featureCollection.addEdge(...conn)
         )
     }
-    const drawing = new Canvas(featureCollection, document.getElementById('canvas'), window.innerWidth < 800 ? window.innerWidth - 100 : 800)
-    drawing.draw()
+    const drawing = new Canvas(featureCollection,
+        document.getElementById('canvas'), window.innerWidth < 800 ? window.innerWidth - 100 : 900);
+    drawing.draw();
 
-    document.getElementById('clear').addEventListener('click', remove)
+    document.getElementById('clear').addEventListener('click', remove);
     document.getElementById('followPath').addEventListener('click',
-        featureCollection.followPath.bind(featureCollection))
+        featureCollection.followPath.bind(featureCollection));
 
 
     document.getElementById('findClosest').addEventListener('click', () => {
         const closestCodes = findClosestStations(featureCollection);
         closestCodes.forEach(code => {
-            featureCollection.getStation(code).highlight()
+            featureCollection.getStation(code).highlight();
         })
     });
-    save(featureCollection)
+    save(featureCollection);
 
 }
 
 function findClosestStations(data) {
-    let shortest = Infinity
-    let stationPair
+    let shortest = Infinity;
+    let stationPair;
     data.connections.forEach(([start, end]) => {
-        const a = data.getStation(start).point
-        const b = data.getStation(end).point
-        const dist = longLatToDist(a, b)
+        const a = data.getStation(start).point;
+        const b = data.getStation(end).point;
+        const dist = longLatToDist(a, b);
         if (dist < shortest) {
-            shortest = dist
-            stationPair = [start, end]
+            shortest = dist;
+            stationPair = [start, end];
         }
     })
-    return stationPair
+    return stationPair;
 }
 
 class Canvas {
@@ -61,7 +62,6 @@ class Canvas {
     #maxLon = 0;
     #minLat = 0;
     #maxLat = 0;
-    #offset = 10;
     #sensorRange = 7;
     #mouseX = 0;
     #mouseY = 0;
@@ -88,7 +88,7 @@ class Canvas {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.featureCollection = featureCollection;
-        this.inRange = []
+        this.inRange = [];
         this.#setBoundaries();
         this.#addListeners();
         this.animate();
@@ -96,7 +96,7 @@ class Canvas {
 
     animate() {
         setInterval(() => {
-            this.draw()
+            this.draw();
         }, 60)
     }
 
@@ -112,9 +112,7 @@ class Canvas {
         const wheel = -Math.sign(e.deltaY) / 10;
         const zoom = Math.pow(1 + Math.abs(wheel) / 2, wheel > 0 ? 1 : -1);
         if (this.#scale * zoom >= 1) {
-
             this.#scale *= zoom;
-
             // Update the translation values to zoom around the mouse cursor
             this.#translateX = this.#mouseX - (this.#mouseX - this.#translateX) * zoom;
             this.#translateY = this.#mouseY - (this.#mouseY - this.#translateY) * zoom;
@@ -124,7 +122,7 @@ class Canvas {
     }
 
     #mouseUp() {
-        this.#isMouseDown = false
+        this.#isMouseDown = false;
         if (this.selection && this.inRange.length) {
             if (!this.featureCollection.followingPath) {
                 this.featureCollection.addEdge(this.selection.code, this.inRange[0].code);
@@ -138,10 +136,10 @@ class Canvas {
     }
 
     #mouseDown(e) {
-        this.#isMouseDown = true
+        this.#isMouseDown = true;
         this.featureCollection.reset();
-        this.#stations = []
-
+        this.#stations = [];
+        this.#distanceMeasurement = 0;
         if (this.inRange.length) {
             this.selection = this.inRange[0];
         } else {
@@ -153,8 +151,8 @@ class Canvas {
 
     #mouseMove(e) {
         const transform = this.ctx.getTransform();
-        const unscaledX = (e.offsetX - this.#offset - this.#translateX) / transform.a;
-        const unscaledY = (e.offsetY - this.#offset - this.#translateY) / transform.d;
+        const unscaledX = (e.offsetX - this.#translateX) / transform.a;
+        const unscaledY = (e.offsetY - this.#translateY) / transform.d;
         this.#mouseX = unscaledX;
         this.#mouseY = unscaledY;
         this.inRange = this.featureCollection.features.filter(p => {
@@ -173,10 +171,9 @@ class Canvas {
         if (this.#dragging) {
             const deltaX = this.#mouseX - this.#prevMouseX;
             const deltaY = this.#mouseY - this.#prevMouseY;
-
             // Update the translation values to move the canvas.
-            this.#translateX += deltaX;
-            this.#translateY += deltaY;
+            this.#translateX += (deltaX * this.#scale);
+            this.#translateY += (deltaY * this.#scale);
             this.#prevMouseX = this.#mouseX;
             this.#prevMouseY = this.#mouseY;
         }
@@ -186,17 +183,18 @@ class Canvas {
 
     drawPath(path) {
         this.#distanceMeasurement = 0;
-        this.#stations = []
+        this.#stations = [];
         if (path) {
             path.forEach((feature, index) => {
                 if (index) {
-                    const dist = longLatToDist(feature.point, path[index - 1].point)
-                    this.#distanceMeasurement += dist
+                    const dist = longLatToDist(feature.point, path[index - 1].point);
+                    this.#distanceMeasurement += dist;
                     const edge = this.featureCollection.findEdge(feature, path[index - 1]);
-                    this.#stations.push(path[index - 1].name + ' to ' + feature.name + ' ' + dist.toFixed(2) + ' Miles')
+                    this.#stations.push(path[index - 1].name + ' to ' +
+                        feature.name + ' ' + dist.toFixed(2) + ' Miles');
                     edge.highlight();
                 }
-                feature.highlight()
+                feature.highlight();
             });
         }
 
@@ -206,7 +204,7 @@ class Canvas {
     draw() {
         const ctx = this.ctx;
 
-        ctx.setTransform(1, 0, 0, 1, 0, 0)
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.setTransform(this.#scale, 0, 0, this.#scale, this.#translateX, this.#translateY);
 
@@ -225,8 +223,8 @@ class Canvas {
                     this.drawPath(
                         this.featureCollection.findPath(
                             this.selection, this.inRange[0]
-                        ))
-                    this.selection = null
+                        ));
+                    this.selection = null;
                 }
 
 
@@ -240,27 +238,29 @@ class Canvas {
         }
 
         ctx.lineWidth = 1;
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = 'grey';
         ctx.beginPath();
         ctx.arc(this.#mouseX, this.#mouseY, this.#sensorRange, 0, Math.PI * 2);
         ctx.stroke();
+        ctx.strokeStyle = 'black';
+
         this.featureCollection.draw(ctx);
         if (this.#distanceMeasurement) {
-            ctx.save()
-            ctx.setTransform(1, 0, 0, 1, 0, 0)
-            ctx.fillText(this.#distanceMeasurement.toFixed(2) + " Miles", 20, 20)
-            ctx.restore()
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.fillText(this.#distanceMeasurement.toFixed(2) + " Miles", 20, 20);
+            ctx.restore();
         }
-        if(this.#stations.length) {
-            ctx.save()
-            ctx.setTransform(1, 0, 0, 1, 0, 0)
-            ctx.lineWidth = 2
-            this.#stations.forEach((station, i)=>{
+        if (this.#stations.length) {
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.lineWidth = 2;
+            this.#stations.forEach((station, i) => {
 
-                ctx.strokeStyle = 'white'
-                ctx.strokeText(station,20,(i + 3 )* 12)
-                ctx.strokeStyle = 'black'
-                ctx.fillText(station,20,(i + 3 )* 12)
+                ctx.strokeStyle = 'white';
+                ctx.strokeText(station, 20, (i + 3) * 12);
+                ctx.strokeStyle = 'black';
+                ctx.fillText(station, 20, (i + 3) * 12);
             })
             ctx.restore()
 
@@ -289,9 +289,9 @@ class Canvas {
         this.#maxLon = Math.max(...lonList);
         this.#minLat = Math.min(...latList);
         this.#maxLat = Math.max(...latList);
-        this.featureCollection.features.forEach(feature =>
-            this.setXy(feature.geometry)
-        );
+        this.featureCollection.features.forEach(feature => {
+            this.setXy(feature.geometry);
+        });
     }
 
     get boundaries() {
@@ -306,45 +306,48 @@ class Canvas {
 
 
 function save(featureCollection) {
-    featureCollection.connections = featureCollection.edges
-    localStorage.setItem('data', JSON.stringify(featureCollection))
+    featureCollection.connections = featureCollection.edges;
+    localStorage.setItem('data', JSON.stringify(featureCollection));
 }
 
 function remove() {
-    localStorage.removeItem('data')
-    window.location.reload()
+    localStorage.removeItem('data');
+    window.location.reload();
 }
 
 class FeatureCollection {
-    #edges = new EdgeCollection()
-    #objects = {}
-    #followingPath = false
+    #edges = new EdgeCollection();
+    #objects = {};
+    #followingPath = false;
     constructor(data) {
-        this.features = []
-        this.#process(data)
+        this.features = [];
+        this.#process(data);
     }
     getStation(code) {
-        return this.#objects[code]
+        return this.#objects[code];
     }
 
     findEdge(start, end) {
-        return this.#edges.findEdge(start, end)
+        return this.#edges.findEdge(start, end);
     }
 
     findPath(current, destination, route = []) {
-        route.push(current)
-        current.traverse()
+        route.push(current);
+        current.traverse();
         if (current == destination) {
             return route;
         }
         const neighbours = this.#edges.filter(current).sort((a, b) => {
-            return longLatToDist(
-                a.point, destination.point) - longLatToDist(b.point, destination.point
-                )
+            return longLatToDist(a.point, destination.point) -
+                longLatToDist(b.point, destination.point
+                );
         })
         for (const neighbour of neighbours) {
             if (!neighbour.traversed) {
-                const new_route = this.findPath(neighbour, destination, [].concat(...route))
+                const new_route = this.findPath(
+                    neighbour,
+                    destination,
+                    [].concat(...route))
                 if (new_route) {
                     return new_route;
                 }
@@ -356,23 +359,23 @@ class FeatureCollection {
 
     reset() {
         this.features.forEach(feature => {
-            feature.reset()
-        })
-        this.#edges.reset()
+            feature.reset();
+        });
+        this.#edges.reset();
     }
 
     followPath() {
-        this.#followingPath = !this.#followingPath
-        const btn = document.getElementById('followPath')
+        this.#followingPath = !this.#followingPath;
+        const btn = document.getElementById('followPath');
         if (this.#followingPath) {
-            btn.style.background = 'lightgreen'
+            btn.style.background = 'lightgreen';
         } else {
-            btn.removeAttribute('style')
+            btn.removeAttribute('style');
         }
     }
 
     get followingPath() {
-        return this.#followingPath
+        return this.#followingPath;
     }
 
     #process(data) {
@@ -380,17 +383,16 @@ class FeatureCollection {
             this.addFeature(new Feature(
                 new Point(data.geometry.coordinates),
                 new RailwayStop(data.properties))
-            )
+            );
         });
     }
 
     draw(ctx) {
         this.#edges.draw(ctx);
         this.features.forEach(feature => {
-            feature.draw(ctx)
+            feature.draw(ctx);
         });
     }
-
 
     /**
      * 
@@ -399,10 +401,9 @@ class FeatureCollection {
     addFeature(feature) {
         this.features.push(feature);
         if (!this.#objects[feature.code])
-            this.#objects[feature.code] = feature
+            this.#objects[feature.code] = feature;
 
     }
-
 
     addEdge(start, end) {
         const startStation = this.features.find(feature => feature.code === start);
@@ -411,74 +412,72 @@ class FeatureCollection {
             this.#edges.push(startStation, endStation);
             this.#edges.push(endStation, startStation);
         }
-
     }
-
 
     get edges() {
-        const edgeCodes = this.#edges.codes
-        return edgeCodes
+        const edgeCodes = this.#edges.codes;
+        return edgeCodes;
     }
-
 
     get points() {
         return this.features.map(feature => {
-            return feature.point
+            return feature.point;
         });
     }
 
     get pointsXY() {
         return this.features.map(feature => {
-            return { x: feature.x, y: feature.y, feature }
+            return { x: feature.x, y: feature.y, feature };
         });
     }
 
 }
 
 class EdgeCollection {
+
     constructor() {
-        this.edges = []
+        this.edges = [];
     }
 
     findEdge(start, end) {
         return this.edges.find((edge) => {
-            return edge.start === start && edge.end === end
-        })
+            return edge.start === start && edge.end === end;
+        });
     }
 
     filter(feature) {
         return this.edges.filter(edge =>
             edge.start === feature
-        ).map(edge => edge.end)
+        ).map(edge => edge.end);
     }
 
     push(start, end) {
         const existingEdge = this.edges.filter(edge => {
-            return edge.start == start && edge.end === end
+            return edge.start == start && edge.end === end;
         });
         if (!existingEdge.length && start !== end)
-            this.edges.push(new Edge(start, end))
+            this.edges.push(new Edge(start, end));
     }
 
     get codes() {
-        return this.edges.map(edge => edge.code)
+        return this.edges.map(edge => edge.code);
     }
 
     draw(ctx) {
         this.edges.forEach(edge => {
-            edge.draw(ctx)
-        })
+            edge.draw(ctx);
+        });
     }
 
     reset() {
-        this.edges.forEach(edge => edge.reset())
+        this.edges.forEach(edge => edge.reset());
     }
 
 }
 
 
 class Feature {
-    #highlighted = false
+    #highlighted = false;
 
     /**
      * 
@@ -486,88 +485,89 @@ class Feature {
      * @param {RailwayStop} properties 
      */
     constructor(geometry, properties) {
-        this.geometry = geometry
-        this.properties = properties
+        this.geometry = geometry;
+        this.properties = properties;
     }
 
     reset() {
-        this.#highlighted = false
-        this.properties.reset()
+        this.#highlighted = false;
+        this.properties.reset();
     }
 
     traverse() {
-        this.properties.traverse()
+        this.properties.traverse();
     }
 
     get traversed() {
-        return this.properties.traversed
+        return this.properties.traversed;
     }
 
     draw(ctx) {
-        this.geometry.draw(ctx, this.#highlighted)
-        // this.drawLabel(ctx)
+        this.geometry.draw(ctx, this.#highlighted);
     }
 
     highlight() {
-        this.#highlighted = true
+        this.#highlighted = true;
     }
 
     drawLabel(ctx) {
-        ctx.save()
-        ctx.lineWidth = 3
-        ctx.lineCap = 'round'
-        ctx.lineJoin = 'miter'
+        ctx.save();
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'miter';
 
-        ctx.textAlign = 'center'
-        ctx.textBasealign = 'middle'
-        ctx.strokeStyle = 'white'
+        ctx.textAlign = 'center';
+        ctx.textBasealign = 'middle';
+        ctx.strokeStyle = 'white';
 
-        ctx.strokeText(this.name, this.x - 10, this.y - 15)
-        ctx.fillText(this.name, this.x - 10, this.y - 15)
-        ctx.strokeStyle = 'darkblue'
-        ctx.lineWidth = .5
+        ctx.strokeText(this.name, this.x - 10, this.y - 15);
+        ctx.fillText(this.name, this.x - 10, this.y - 15);
+        ctx.strokeStyle = 'darkblue';
+        ctx.lineWidth = .5;
 
-        ctx.beginPath()
-        ctx.moveTo(this.x, this.y - 3)
-        ctx.lineTo(this.x, this.y - 15)
-        ctx.stroke()
-        ctx.restore()
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y - 3);
+        ctx.lineTo(this.x, this.y - 15);
+        ctx.stroke();
+        ctx.restore();
     }
 
     get name() {
-        return this.properties.name
+        return this.properties.name;
     }
     get code() {
-        return this.properties.stationCode
+        return this.properties.stationCode;
     }
 
     get point() {
-        return this.geometry.coordinates
+        return this.geometry.coordinates;
     }
 
     get x() {
-        return this.geometry.x
+        return this.geometry.x;
     }
 
     get y() {
-        return this.geometry.y
+        return this.geometry.y;
     }
 
     /**
      * @param {String} colour
      */
     set colour(colour) {
-        this.geometry.stroke = colour
+        this.geometry.stroke = colour;
     }
 
 }
 
 class Point {
-    #stroke = 'black'
+    #stroke = 'black';
+    #x = 0;
+    #y = 0;
     constructor(coordinates) {
         this.coordinates = coordinates;
-        this.x = 0
-        this.y = 0
+        this.#x = 0;
+        this.#y = 0;
 
     }
 
@@ -575,22 +575,37 @@ class Point {
      * @param {string} colour
      */
     set stroke(colour) {
-        this.#stroke = colour
+        this.#stroke = colour;
     }
 
     draw(ctx, highlight = false) {
-        ctx.strokeStyle = this.#stroke
+        ctx.strokeStyle = this.#stroke;
         if (highlight) {
-            ctx.strokeStyle = 'red'
-            ctx.lineWidth = 2
+            ctx.strokeStyle = 'orange';
+            ctx.lineWidth = 2;
         }
         ctx.beginPath()
-        ctx.arc(this.x, this.y, highlight ? 3 : 3, 0, Math.PI * 2)
-        ctx.fillStyle = 'white'
-        ctx.fill()
-        ctx.stroke()
-        ctx.fillStyle = 'black'
-        ctx.lineWidth = 1
+        ctx.arc(this.#x, this.#y, highlight ? 4 : 3, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = 'black';
+        ctx.lineWidth = 1;
+    }
+
+    get x() {
+        return this.#x;
+    }
+
+    get y() {
+        return this.#y;
+    }
+
+    set x(x) {
+        this.#x = x;
+    }
+    set y(y) {
+        this.#y = y;
     }
 }
 
@@ -604,44 +619,44 @@ class Edge {
      * @param {Feature} end 
      */
     constructor(start, end) {
-        this.#start = start
-        this.#end = end
+        this.#start = start;
+        this.#end = end;
     }
     get code() {
-        return [this.#start.code, this.#end.code]
+        return [this.#start.code, this.#end.code];
     }
 
     highlight() {
-        this.#highlighted = true
+        this.#highlighted = true;
     }
 
     reset() {
-        this.#highlighted = false
+        this.#highlighted = false;
     }
 
     get start() {
-        return this.#start
+        return this.#start;
     }
 
     get end() {
-        return this.#end
+        return this.#end;
     }
 
     draw(ctx) {
         ctx.save()
         if (this.#highlighted) {
-            ctx.lineWidth = 4
-            ctx.strokeStyle = 'orange'
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'orange';
         }
-        ctx.beginPath()
-        ctx.moveTo(...this.getXY('start'))
-        ctx.lineTo(...this.getXY('end'))
-        ctx.stroke()
+        ctx.beginPath();
+        ctx.moveTo(...this.getXY('start'));
+        ctx.lineTo(...this.getXY('end'));
+        ctx.stroke();
         ctx.restore();
     }
 
     getXY(pos = 'start') {
-        return [this[pos].x, this[pos].y]
+        return [this[pos].x, this[pos].y];
     }
 
 }
@@ -650,51 +665,51 @@ class RailwayStop {
 
     #traversed = false
     constructor({ currentStatus, description, name, stationCode, stroke, ticketZone, validFrom }) {
-        this.currentStatus = currentStatus
-        this.description = description
-        this.name = name
-        this.stationCode = stationCode
-        this.stroke = stroke
-        this.ticketZone = ticketZone
-        this.validFrom = validFrom
+        this.currentStatus = currentStatus;
+        this.description = description;
+        this.name = name;
+        this.stationCode = stationCode;
+        this.stroke = stroke;
+        this.ticketZone = ticketZone;
+        this.validFrom = validFrom;
     }
 
     traverse() {
-        this.#traversed = true
+        this.#traversed = true;
     }
 
     get traversed() {
-        return this.#traversed
+        return this.#traversed;
     }
 
     reset() {
-        this.#traversed = false
+        this.#traversed = false;
     }
 
 }
 
 function pixelDistance(a, b) {
-    return Math.hypot(Math.abs(a.x - b.x), Math.abs(a.y - b.y))
+    return Math.hypot(Math.abs(a.x - b.x), Math.abs(a.y - b.y));
 }
 
 function longLatToDist(start, end, KM = false) {
     const R = KM ? 6373 : 3959;
-    const lon1 = degToRad(start[0])
-    const lon2 = degToRad(end[0])
-    const lat1 = degToRad(start[1])
-    const lat2 = degToRad(end[1])
+    const lon1 = degToRad(start[0]);
+    const lon2 = degToRad(end[0]);
+    const lat1 = degToRad(start[1]);
+    const lat2 = degToRad(end[1]);
 
-    const dlon = lon2 - lon1
-    const dlat = lat2 - lat1
+    const dlon = lon2 - lon1;
+    const dlat = lat2 - lat1;
     //Haversine formula
-    a = Math.sin(dlat / 2) ** 2 + Math.cos(lat2) * Math.sin(dlon / 2) ** 2
-    c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+    a = Math.sin(dlat / 2) ** 2 + Math.cos(lat2) * Math.sin(dlon / 2) ** 2;
+    c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-    return R * c
+    return R * c;
 }
 
 function degToRad(deg) {
-    return Math.PI * deg / 180
+    return Math.PI * deg / 180;
 }
 
 function lerp(a, b, t) {
