@@ -17,7 +17,7 @@ async function getData() {
 async function start() {
     const data = await getData()
     const featureCollection = new FeatureCollection(data);
-    console.log(data.features)
+    console.log(featureCollection)
 
     if (data.connections) {
         data.connections.forEach(conn =>
@@ -25,12 +25,10 @@ async function start() {
         )
     }
     featureCollection.addEdge('HPK', 'BKV')
-    debugger
     featureCollection.addEdge('HPK', 'BKV')
     save(featureCollection)
     const drawing = new Canvas(featureCollection, document.getElementById('canvas'))
     drawing.draw()
-    // console.log(JSON.parse(JSON.stringify(featureCollection.features)))
 
 }
 
@@ -40,6 +38,10 @@ class Canvas {
     #maxLon = 0;
     #minLat = 0;
     #maxLat = 0;
+    #offset = 10;
+    #sensorRange = 10;
+    #mouseX = 0;
+    #mouseY = 0;
     /**
      * 
      * @param {FeatureCollection} featureCollection 
@@ -51,8 +53,9 @@ class Canvas {
         canvas.width = w
         canvas.height = h
         this.canvas = canvas
+
         this.ctx = canvas.getContext('2d');
-        this.ctx.translate(10, 10)
+        this.ctx.translate(this.#offset, this.#offset)
 
         this.featureCollection = featureCollection
         this.#setBoundaries()
@@ -61,13 +64,68 @@ class Canvas {
     }
 
     #addListeners() {
+        this.selection = null
+        this.canvas.addEventListener('mousedown', this.#mouseDown.bind(this))
+        this.canvas.addEventListener('mousemove', this.#mouseMove.bind(this))
+        this.canvas.addEventListener('mouseup', this.#mouseUp.bind(this))
+    }
+
+    #mouseUp() {
+        if(this.selection && this.inRange.length) {
+            console.log(this.selection.code,this.inRange[0].code)
+            this.featureCollection.addEdge(this.selection.code,this.inRange[0].code)
+            save(this.featureCollection)
+        }
+        this.selection = null
+    }
+
+    #mouseDown(e) {
+        if(this.inRange.length) {
+            this.selection = this.inRange[0]
+        }
+        
+
+    }
+    #mouseMove(e) {
+        this.#mouseX = e.offsetX - this.#offset;
+        this.#mouseY = e.offsetY - this.#offset
+       
+        this.inRange = this.featureCollection.features.filter(p=>{
+            const dist = pixelDistance({x:this.#mouseX,y:this.#mouseY},p)
+            if(dist < this.#sensorRange) {
+                p.colour = 'red'
+                return true
+            } else {
+                p.colour = 'black'
+            }
+        })
+        if(this.selection) {
+            this.selection.colour = 'green'
+        }
 
     }
 
     draw() {
+        const ctx = this.ctx
         setInterval(() => {
-            this.ctx.clearRect(-10, -10, this.canvas.width, this.canvas.height)
-            this.featureCollection.draw(this.ctx)
+            ctx.clearRect(-this.#offset, -this.#offset, this.canvas.width + this.#offset, this.canvas.height + this.#offset)
+
+            if(this.selection) {
+                this.selection.drawLabel(ctx)
+                ctx.beginPath();
+                ctx.moveTo(this.selection.x,this.selection.y)
+                if(this.inRange.length) {
+                    ctx.lineTo(this.inRange[0].x,this.inRange[0].y)
+                    this.inRange[0].drawLabel(ctx)
+                } else {
+                    ctx.lineTo(this.#mouseX,this.#mouseY)
+                }
+                ctx.stroke()
+            }
+            ctx.beginPath()
+            ctx.arc(this.#mouseX,this.#mouseY,this.#sensorRange,0,Math.PI * 2)
+            ctx.stroke();
+            this.featureCollection.draw(ctx)
         }, 60)
 
     }
@@ -107,6 +165,7 @@ class Canvas {
 }
 
 function save(featureCollection) {
+    debugger
     featureCollection.connections = featureCollection.edges
     localStorage.setItem('data', JSON.stringify(featureCollection))
 }
@@ -168,6 +227,12 @@ class FeatureCollection {
         });
     }
 
+    get pointsXY() {
+        return this.features.map(feature => {
+            return {x:feature.x,y:feature.y, feature}
+        });
+    }
+
 }
 
 class EdgeCollection {
@@ -183,7 +248,7 @@ class EdgeCollection {
             this.edges.push(new Edge(start, end))
     }
 
-    codes() {
+    get codes() {
         return this.edges.map(edge => edge.code)
     }
 
@@ -214,6 +279,10 @@ class Feature {
         this.geometry.draw(ctx)
     }
 
+    drawLabel(ctx) {
+        ctx.fillText(this.code,this.x,this.y)
+    }
+
     get name() {
         return this.properties.name
     }
@@ -233,10 +302,14 @@ class Feature {
         return this.geometry.y
     }
 
+    set colour(colour) {
+        this.geometry.stroke = colour
+    }
+
 }
 
 class Point {
-
+    #stroke = 'black'
     constructor(coordinates) {
         this.coordinates = coordinates;
         this.x = 0
@@ -244,9 +317,17 @@ class Point {
 
     }
 
+    /**
+     * @param {string} colour
+     */
+    set stroke(colour) {
+        this.#stroke = colour
+    }
+
     draw(ctx) {
+        ctx.strokeStyle = this.#stroke
         ctx.beginPath()
-        ctx.arc(this.x, this.y, 3,0, Math.PI * 2)
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2)
         ctx.stroke()
     }
 }
@@ -275,7 +356,7 @@ class Edge {
     get end() {
         return this.#end
     }
-    
+
     getXY(pos = 'start') {
         return [this[pos].x, this[pos].y]
     }
